@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://KinematicBody2D_slacker.gd" type="Script" id=1]
+[ext_resource path="res://Green-Cap-Character-16x18.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "down"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("slacker:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("slacker:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 6, 8 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "up"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("slacker:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 3, 5 ]
+}
+
+[node name="KinematicBody2D_slacker" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 5 )
+shape = SubResource( 1 )
+
+[node name="slacker" type="Sprite" parent="."]
+modulate = Color( 0.929412, 0.713726, 0.713726, 1 )
+use_parent_material = true
+position = Vector2( 0.5, 3.5 )
+scale = Vector2( 5.5625, 5.05556 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 3
+frame = 6
+
+[node name="AnimationPlayer_slacker" type="AnimationPlayer" parent="."]
+anims/down = SubResource( 2 )
+anims/left = SubResource( 3 )
+anims/up = SubResource( 4 )
+
+[node name="Label_money" type="Label" parent="."]
+margin_left = -25.0
+margin_top = -86.0
+margin_right = 34.0
+margin_bottom = -55.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 1, 0.941176, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0.945098, 0, 1 )
+text = "Money
+"
+
+[node name="Label_ore" type="Label" parent="."]
+margin_left = -26.0
+margin_top = -128.0
+margin_right = 14.0
+margin_bottom = -114.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.890196, 0.905882, 0.980392, 1 )
+text = "Ore"
+
+[node name="Label_candy" type="Label" parent="."]
+margin_left = -30.0
+margin_top = -165.0
+margin_right = 70.0
+margin_bottom = -145.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.92549, 0.4, 0.831373, 1 )
+custom_colors/font_color_shadow = Color( 0.713726, 0.207843, 0.207843, 1 )
+text = "Candy"

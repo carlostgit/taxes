@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Node2D_Coin.gd" type="Script" id=1]
+[ext_resource path="res://coins.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rotate"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite_Coin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 19.0263
+
+[node name="Node2D_Coin" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite_Coin" type="Sprite" parent="."]
+position = Vector2( -1, 0 )
+texture = ExtResource( 2 )
+vframes = 4
+
+[node name="AnimationPlayer_Coin" type="AnimationPlayer" parent="."]
+anims/rotate = SubResource( 1 )
+
+[node name="Timer_Coin" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1, -1 )
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -18.0
+margin_top = -43.0
+margin_right = 22.0
+margin_bottom = -29.0
+text = "Money"
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
