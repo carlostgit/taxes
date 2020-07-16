@@ -25,15 +25,15 @@ func _process(delta):
 #	if Input.is_action_just_pressed("ui_left"):
 #		$KinematicBody2D_worker.send_money(1.0,$StaticBody2D_shop)
 #		
-	if Input.is_action_just_pressed("ui_down"):
-		var ore = MyArea2D_oreResource.instance()
-		add_child(ore)
-		ore.set_origin_destiny($Area2D_mine,$KinematicBody2D_worker)
-		ore.set_value(1.0)
-		
+#	if Input.is_action_just_pressed("ui_down"):
+#		var ore = MyArea2D_oreResource.instance()
+#		add_child(ore)
+#		ore.set_origin_destiny($Area2D_mine,$KinematicBody2D_worker)
+#		ore.set_value(1.0)
+#
 #	if Input.is_action_just_pressed("ui_right"):
 #		$KinematicBody2D_worker.send_ore(1.0,$StaticBody2D_shop)
-		
+	pass	
 		
 func _on_Area2D_mine_body_entered(body):
 #	print ("Body entered. Body name")

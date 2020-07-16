@@ -30,6 +30,22 @@ func get_money():
 func add_money(var value_arg):
 	var value = get_money()
 	set_money(value+value_arg)
+	
+	if(value_arg>0):
+		add_collected(value_arg)
+
+func set_collected(var value_arg):
+	$Label_collected.set_text(str(value_arg))
+
+func get_collected():
+	var value_text = $Label_collected.get_text()
+	var value = float(value_text)
+	return value
+
+func add_collected(var value_arg):
+	var value = get_collected()
+	set_collected(value+value_arg)
+
 
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	add_money(value_arg)
