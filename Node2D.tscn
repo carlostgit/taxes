@@ -43,7 +43,7 @@ extents = Vector2( 93.713, 47.6834 )
 [node name="Node2D" type="Node2D"]
 position = Vector2( 57, 38 )
 script = ExtResource( 1 )
-_corporate_tax_rate = 0.0
+_corporate_tax_rate = 0.1
 _value_added_tax = 0.8
 
 [node name="worker" type="Sprite" parent="."]
@@ -139,7 +139,6 @@ text = "Candy"
 position = Vector2( 242, 220 )
 
 [node name="StaticBody2D_government" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 666, 305 )
 script = ExtResource( 12 )
 _slacker_path = NodePath("../KinematicBody2D_slacker")
@@ -167,6 +166,8 @@ margin_right = 43.0
 margin_bottom = -80.0
 custom_colors/font_color = Color( 0.729412, 1, 0.576471, 1 )
 text = "Collected"
+
+[node name="Timer" type="Timer" parent="StaticBody2D_government"]
 
 [node name="Label_corporate_tax_rate" type="Label" parent="."]
 margin_left = 661.0

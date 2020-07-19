@@ -12,6 +12,8 @@ const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Timer.connect("timeout",self,"on_timer_timeout")
+	$Timer.start()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,10 +52,6 @@ func add_collected(var value_arg):
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	add_money(value_arg)
 	
-	var current_money = get_money()
-	
-	if(current_money > 0.01):
-		call_deferred("send_money",current_money,self.get_node(_slacker_path))
 #		var coin = MyNode2D_moneyResource.instance()
 #		self.get_parent().add_child(coin)
 #		coin.set_origin_destiny(self,self.get_node(_slacker_path))
@@ -67,3 +65,9 @@ func send_money(var amount_arg, var destiny_node_arg):
 		coin.set_origin_destiny(self,destiny_node_arg)
 		coin.set_value(amount_arg)
 		add_money(-amount_arg)
+
+func on_timer_timeout():
+	var current_money = get_money()
+	
+	if(current_money > 0.01):
+		call_deferred("send_money",current_money,self.get_node(_slacker_path))

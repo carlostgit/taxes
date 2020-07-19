@@ -20,17 +20,17 @@ const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
 
 
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
-	var taxes = self._tax_rate_worker*value_arg
-	var money_after_taxes = value_arg-taxes
-	
+#	var taxes = self._tax_rate_worker*value_arg
+#	var money_after_taxes = value_arg-taxes
+#
 	add_money(value_arg)
 	
-	self.call_deferred("pay_taxes",taxes)
+#	self.call_deferred("pay_taxes",taxes)
 	
 	#var current_money = get_money()
-	if (money_after_taxes>0):
-		var shop_node = self.get_node(_shop_path)
-		self.call_deferred("send_money",money_after_taxes,shop_node)
+#	if (money_after_taxes>0):
+#		var shop_node = self.get_node(_shop_path)
+#		self.call_deferred("send_money",money_after_taxes,shop_node)
 
 	
 
@@ -44,3 +44,25 @@ func pay_taxes(var amount_arg):
 
 func set_corporate_tax_rate(var rate):
 	_tax_rate_worker = rate;
+	
+	
+func on_timer_timeout():
+	
+	var current_money = get_money()
+	var taxes = self._tax_rate_worker*current_money
+	var money_after_taxes = current_money-taxes
+	self.call_deferred("pay_taxes",taxes)
+
+	yield(get_tree().create_timer(0.5), "timeout")
+	
+	if (money_after_taxes>0):
+		var shop_node = self.get_node(_shop_path)
+		self.call_deferred("send_money",money_after_taxes,shop_node)
+	
+	yield(get_tree().create_timer(0.5), "timeout") 
+	
+	var current_ore = get_ore()
+	if (current_ore > 0):
+		var shop_node = self.get_node(_shop_path)
+		call_deferred("send_ore",current_ore,shop_node)
+	

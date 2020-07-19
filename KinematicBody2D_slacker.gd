@@ -13,6 +13,9 @@ const MyNode2D_CoinResource = preload("res://Node2D_Coin.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Timer.connect("timeout",self,"on_timer_timeout")
+	$Timer.start()
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,25 +82,15 @@ func add_candy(var value_arg):
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	add_money(value_arg)
 
-	var current_money = get_money()
-	if (current_money>0):
-		var shop_node = self.get_node(_shop_path)
-		self.call_deferred("send_money",current_money,shop_node)
-	#send_money(value_arg,self.get_node(_shop_path))
-		
-#	var coin = MyNode2D_CoinResource.instance()
-#	self.get_parent().add_child(coin)
-#	coin.set_origin_destiny(self,self.get_node(_shop_path))
-#	coin.set_value(value_arg)
-#	add_money(-value_arg)
+#	var current_money = get_money()
+#	if (current_money>0):
+#		var shop_node = self.get_node(_shop_path)
+#		self.call_deferred("send_money",current_money,shop_node)
+
 
 func hit_ore(var value_arg, var origin_arg, var destiny_arg):
 	add_ore(value_arg)
 	
-	var current_ore = get_ore()
-	if (current_ore > 0):
-		var shop_node = self.get_node(_shop_path)
-		call_deferred("send_ore",current_ore,shop_node)
 	
 func hit_candy(var value_arg, var origin_arg, var destiny_arg):
 	add_candy(value_arg)
@@ -120,5 +113,8 @@ func send_money(var amount_arg, var destiny_arg):
 	money.set_value(amount_arg)
 	add_money(-amount_arg)	
 	
-	
-	
+func on_timer_timeout():
+	var current_money = get_money()
+	if (current_money>0):
+		var shop_node = self.get_node(_shop_path)
+		self.call_deferred("send_money",current_money,shop_node)

@@ -105,3 +105,6 @@ rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.92549, 0.4, 0.831373, 1 )
 custom_colors/font_color_shadow = Color( 0.713726, 0.207843, 0.207843, 1 )
 text = "Candy"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
