@@ -11,7 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-export var _tax_rate_worker = 0.25
+var _tax_rate_worker = 0.25
 
 export (NodePath) var _government
 
@@ -35,8 +35,12 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	
 
 func pay_taxes(var amount_arg):
-	var coin_gov = MyNode2D_moneyResource.instance()
-	self.get_parent().add_child(coin_gov)
-	coin_gov.set_origin_destiny(self,get_node(_government))
-	coin_gov.set_value(amount_arg)
-	add_money(-amount_arg)		
+	if (amount_arg!=0):
+		var coin_gov = MyNode2D_moneyResource.instance()
+		self.get_parent().add_child(coin_gov)
+		coin_gov.set_origin_destiny(self,get_node(_government))
+		coin_gov.set_value(amount_arg)
+		add_money(-amount_arg)		
+
+func set_corporate_tax_rate(var rate):
+	_tax_rate_worker = rate;

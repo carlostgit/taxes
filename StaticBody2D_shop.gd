@@ -42,7 +42,7 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 #	self.get_parent().add_child(candy)
 #	candy.set_origin_destiny(self,origin_arg)
 #	candy.set_value(value_aft_taxes)	
-	add_candy(-value_aft_taxes)
+#	add_candy(-value_aft_taxes)
 	
 	call_deferred("pay_taxes",taxes)
 #	pay_taxes(taxes)
@@ -70,7 +70,7 @@ func hit_ore(var value_arg, var origin_arg, var destiny_arg):
 #	self.get_parent().add_child(coin)
 #	coin.set_origin_destiny(self,origin_arg)
 #	coin.set_value(value_arg)
-	add_money(-value_arg)
+#	add_money(-value_arg)
 
 	
 
@@ -105,6 +105,7 @@ func pay_taxes(var amount_arg):
 	add_money(-amount_arg)		
 
 func send_money(var amount_arg, var destiny_node_arg):
+	if(amount_arg != 0):
 		var coin = MyNode2D_moneyResource.instance()
 		self.get_parent().add_child(coin)
 		coin.set_origin_destiny(self,destiny_node_arg)
@@ -112,8 +113,12 @@ func send_money(var amount_arg, var destiny_node_arg):
 		add_money(-amount_arg)
 
 func send_candy(var amount_arg, var destiny_node_arg):
-		var candy = MyNode2D_candyResource.instance()
-		self.get_parent().add_child(candy)
-		candy.set_origin_destiny(self,destiny_node_arg)
-		candy.set_value(amount_arg)
-		add_money(-amount_arg)
+	var candy = MyNode2D_candyResource.instance()
+	self.get_parent().add_child(candy)
+	candy.set_origin_destiny(self,destiny_node_arg)
+	candy.set_value(amount_arg)
+	add_candy(-amount_arg)
+
+
+func set_value_added_tax_rate(var rate):
+	_tax_rate = rate

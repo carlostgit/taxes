@@ -43,6 +43,8 @@ extents = Vector2( 93.713, 47.6834 )
 [node name="Node2D" type="Node2D"]
 position = Vector2( 57, 38 )
 script = ExtResource( 1 )
+_corporate_tax_rate = 0.0
+_value_added_tax = 0.8
 
 [node name="worker" type="Sprite" parent="."]
 position = Vector2( 264.5, 497.5 )
@@ -67,6 +69,7 @@ _shop_path = NodePath("../StaticBody2D_shop")
 _government = NodePath("../StaticBody2D_government")
 
 [node name="Area2D_mine" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 78, 409 )
 script = ExtResource( 5 )
 _node_path_worker = NodePath("../KinematicBody2D_worker")
@@ -136,6 +139,7 @@ text = "Candy"
 position = Vector2( 242, 220 )
 
 [node name="StaticBody2D_government" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 666, 305 )
 script = ExtResource( 12 )
 _slacker_path = NodePath("../KinematicBody2D_slacker")
@@ -163,4 +167,32 @@ margin_right = 43.0
 margin_bottom = -80.0
 custom_colors/font_color = Color( 0.729412, 1, 0.576471, 1 )
 text = "Collected"
+
+[node name="Label_corporate_tax_rate" type="Label" parent="."]
+margin_left = 661.0
+margin_top = 105.0
+margin_right = 701.0
+margin_bottom = 119.0
+text = "0"
+
+[node name="Label_value_added_tax_rate" type="Label" parent="."]
+margin_left = 662.0
+margin_top = 131.0
+margin_right = 702.0
+margin_bottom = 145.0
+text = "0.8"
+
+[node name="Label_corporate_tax_rate_text" type="Label" parent="."]
+margin_left = 689.0
+margin_top = 105.0
+margin_right = 803.0
+margin_bottom = 119.0
+text = "Corporate tax rate"
+
+[node name="Label_value_added_tax_text" type="Label" parent="."]
+margin_left = 695.0
+margin_top = 128.0
+margin_right = 735.0
+margin_bottom = 142.0
+text = "VAT"
 [connection signal="body_entered" from="Area2D_mine" to="." method="_on_Area2D_mine_body_entered"]
