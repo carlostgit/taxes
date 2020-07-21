@@ -40,7 +40,10 @@ func _process(delta):
 #		ore.set_origin_destiny($Area2D_mine,$KinematicBody2D_worker)
 #		ore.set_value(1.0)
 #
-#	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("ui_right"):
+		self.get_tree().reload_current_scene()
+
+		
 #		$KinematicBody2D_worker.send_ore(1.0,$StaticBody2D_shop)
 	pass	
 		
@@ -53,3 +56,18 @@ func _on_Area2D_mine_body_entered(body):
 	pass	
 
 
+
+#
+#func _on_Button_pressed():
+#	var corp_tax=float($LineEdit.get_text())
+#	self.get_tree().reload_current_scene()
+#	_corporate_tax_rate=corp_tax
+#	yield(get_tree().create_timer(0.5), "timeout")
+#	$Label_corporate_tax_rate.set_text(str(corp_tax))
+#	pass # Replace with function body.
+func reset():
+	self.get_tree().reload_current_scene()
+	
+func set_corporate_tax(var corp_tax_arg):
+	_corporate_tax_rate=corp_tax_arg
+	$Label_corporate_tax_rate.set_text(str(corp_tax_arg))
