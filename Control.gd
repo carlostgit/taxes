@@ -15,8 +15,11 @@ func _ready():
 
 
 func _on_Button_pressed():
-	var corp_tax_text = $LineEdit.get_text()
+	var corp_tax_text = $LineEdit_corp_tax.get_text()
 	var corp_tax_value = float(corp_tax_text)
+	var VAT_text = $LineEdit_VAT.get_text()
+	var VAT_value = float(VAT_text)
+	
 #	$Node2D.reset()
 	for node in self.get_children():
 		if(node.is_in_group("main_scene_group")):
@@ -24,7 +27,9 @@ func _on_Button_pressed():
 	if ($Node2D):
 		$Node2D.queue_free()
 	var new_main_scene = main_scene_res.instance()
+	new_main_scene.set_corporate_tax(corp_tax_value)
+	new_main_scene.set_VAT(VAT_value)
 	self.add_child(new_main_scene)
 	new_main_scene.add_to_group("main_scene_group")
-	new_main_scene.set_corporate_tax(corp_tax_value)
+
 	pass # Replace with function body.

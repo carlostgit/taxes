@@ -71,3 +71,8 @@ func reset():
 func set_corporate_tax(var corp_tax_arg):
 	_corporate_tax_rate=corp_tax_arg
 	$Label_corporate_tax_rate.set_text(str(corp_tax_arg))
+
+
+func set_VAT(var VAT_arg):
+	_value_added_tax=VAT_arg
+	$Label_value_added_tax_rate.set_text(str(VAT_arg))

@@ -9,18 +9,40 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 1.0
-margin_top = 2.0
-margin_right = 49.0
-margin_bottom = 22.0
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 55.0
+margin_bottom = 26.0
 text = "Reset"
 
-[node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 4.0
+[node name="LineEdit_corp_tax" type="LineEdit" parent="."]
+margin_left = 5.0
 margin_top = 37.0
-margin_right = 62.0
+margin_right = 63.0
 margin_bottom = 61.0
-text = "5"
+text = "0.1"
 
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
+
+[node name="LineEdit_VAT" type="LineEdit" parent="."]
+margin_left = 7.0
+margin_top = 73.0
+margin_right = 65.0
+margin_bottom = 97.0
+text = "0.25"
+
+[node name="Label_VAT" type="Label" parent="."]
+margin_left = 76.0
+margin_top = 79.0
+margin_right = 116.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( 19.0115, 5.744 )
+text = "VAT"
+
+[node name="Label_corporate_tax" type="Label" parent="."]
+margin_left = 74.0
+margin_top = 43.0
+margin_right = 114.0
+margin_bottom = 57.0
+text = "Corporate tax"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
