@@ -40,8 +40,8 @@ func _process(delta):
 #		ore.set_origin_destiny($Area2D_mine,$KinematicBody2D_worker)
 #		ore.set_value(1.0)
 #
-	if Input.is_action_just_pressed("ui_right"):
-		self.get_tree().reload_current_scene()
+#	if Input.is_action_just_pressed("ui_right"):
+#		self.get_tree().reload_current_scene()
 
 		
 #		$KinematicBody2D_worker.send_ore(1.0,$StaticBody2D_shop)

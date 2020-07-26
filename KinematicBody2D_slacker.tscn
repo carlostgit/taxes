@@ -77,10 +77,10 @@ anims/left = SubResource( 3 )
 anims/up = SubResource( 4 )
 
 [node name="Label_money" type="Label" parent="."]
-margin_left = -25.0
-margin_top = -86.0
-margin_right = 34.0
-margin_bottom = -55.0
+margin_left = -28.0
+margin_top = -140.0
+margin_right = 31.0
+margin_bottom = -109.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 1, 0.941176, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0.945098, 0, 1 )
@@ -88,19 +88,19 @@ text = "Money
 "
 
 [node name="Label_ore" type="Label" parent="."]
-margin_left = -26.0
-margin_top = -128.0
-margin_right = 14.0
-margin_bottom = -114.0
+margin_left = -30.0
+margin_top = -170.0
+margin_right = 10.0
+margin_bottom = -156.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.890196, 0.905882, 0.980392, 1 )
 text = "Ore"
 
 [node name="Label_candy" type="Label" parent="."]
-margin_left = -30.0
-margin_top = -165.0
-margin_right = 70.0
-margin_bottom = -145.0
+margin_left = -31.0
+margin_top = -201.0
+margin_right = 69.0
+margin_bottom = -181.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.92549, 0.4, 0.831373, 1 )
 custom_colors/font_color_shadow = Color( 0.713726, 0.207843, 0.207843, 1 )
@@ -108,3 +108,12 @@ text = "Candy"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Label_after_taxes" type="Label" parent="."]
+margin_left = -25.0
+margin_top = -102.0
+margin_right = 44.0
+margin_bottom = -88.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.890196, 0.560784, 0.290196, 1 )
+text = "After taxes"

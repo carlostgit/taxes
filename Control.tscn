@@ -23,6 +23,7 @@ margin_bottom = 61.0
 text = "0.1"
 
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 100, 54 )
 
 [node name="LineEdit_VAT" type="LineEdit" parent="."]
 margin_left = 7.0
