@@ -32,10 +32,32 @@ func add_money(var value_arg):
 	var value = get_money()
 	set_money(value+value_arg)
 
+func set_after_taxes(var value_arg):
+	$Label_after_taxes.set_text(str(value_arg))
+
+func get_after_taxes():
+	var value_text = $Label_after_taxes.get_text()
+	var value = float(value_text)
+	return value
+
+func add_after_taxes(var value_arg):
+	var value = get_after_taxes()
+	set_after_taxes(value+value_arg)
+
+
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	add_money(value_arg)
+	
+	yield(get_tree().create_timer(0.5), "timeout")
+	
+#
 	var taxes = _tax_rate*value_arg
 	var value_aft_taxes = value_arg - taxes
+#
+#	add_after_taxes(value_aft_taxes)
+#	add_money(-value_aft_taxes)
+	
+	
 	
 	call_deferred("send_candy",value_aft_taxes,origin_arg)
 #	var candy = MyNode2D_candyResource.instance()
@@ -44,8 +66,10 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 #	candy.set_value(value_aft_taxes)	
 #	add_candy(-value_aft_taxes)
 	
-	call_deferred("pay_taxes",taxes)
+	
 #	pay_taxes(taxes)
+
+	call_deferred("pay_taxes",taxes)
 
 func set_ore(var value_arg):
 	$Label_ore.set_text(str(value_arg))
@@ -94,7 +118,7 @@ func hit_candy(var value_arg, var origin_arg, var destiny_arg):
 #	self.get_parent().add_child(coin)
 #	coin.set_origin_destiny(self,origin_arg)
 #	coin.set_value(value_arg)
-	add_money(-value_arg)
+	add_after_taxes(-value_arg)
 
 ################################
 func pay_taxes(var amount_arg):
@@ -102,7 +126,11 @@ func pay_taxes(var amount_arg):
 	self.get_parent().add_child(coin_gov)
 	coin_gov.set_origin_destiny(self,get_node(_government))
 	coin_gov.set_value(amount_arg)
-	add_money(-amount_arg)		
+	add_money(-amount_arg)	
+	var remaining_money = get_money()
+	if (remaining_money>0):
+		add_money(-remaining_money)
+		add_after_taxes(remaining_money)	
 
 func send_money(var amount_arg, var destiny_node_arg):
 	if(amount_arg != 0):
@@ -110,7 +138,7 @@ func send_money(var amount_arg, var destiny_node_arg):
 		self.get_parent().add_child(coin)
 		coin.set_origin_destiny(self,destiny_node_arg)
 		coin.set_value(amount_arg)
-		add_money(-amount_arg)
+		add_after_taxes(-amount_arg)
 
 func send_candy(var amount_arg, var destiny_node_arg):
 	var candy = MyNode2D_candyResource.instance()
