@@ -70,17 +70,30 @@ func on_timer_timeout():
 
 	yield(get_tree().create_timer(0.5), "timeout")
 	
+	self.call_deferred("buy_candies")
+	
+#	var money_after_taxes = get_after_taxes()
+#	if (money_after_taxes>0):
+#		var shop_node = self.get_node(_shop_path)
+#		self.call_deferred("send_money",money_after_taxes,shop_node)
+	
+	yield(get_tree().create_timer(0.5), "timeout") 
+	
+	self.call_deferred("sell_ore")
+		
+#	var current_ore = get_ore()
+#	if (current_ore > 0):
+#		var shop_node = self.get_node(_shop_path)
+#		call_deferred("send_ore",current_ore,shop_node)
+	
+func buy_candies():
 	var money_after_taxes = get_after_taxes()
 	if (money_after_taxes>0):
 		var shop_node = self.get_node(_shop_path)
 		self.call_deferred("send_money",money_after_taxes,shop_node)
-	
-	yield(get_tree().create_timer(0.5), "timeout") 
-	
+
+func sell_ore():
 	var current_ore = get_ore()
 	if (current_ore > 0):
 		var shop_node = self.get_node(_shop_path)
 		call_deferred("send_ore",current_ore,shop_node)
-	
-
-	

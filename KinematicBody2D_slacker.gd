@@ -130,16 +130,36 @@ func send_money(var amount_arg, var destiny_arg):
 	
 func on_timer_timeout():
 	
+#	var before_taxes_money= get_money()
+#	var after_taxes_money = before_taxes_money
+#
+#	add_money(-after_taxes_money)
+#	add_after_taxes(after_taxes_money)
+	
+	self.call_deferred("pay_taxes")
+	
+	yield(get_tree().create_timer(0.5), "timeout")
+
+	self.call_deferred("buy_candies")
+	
+#	var current_money = get_after_taxes()
+#
+#	if (current_money>0):
+#		var shop_node = self.get_node(_shop_path)
+#		self.call_deferred("send_money",current_money,shop_node)
+
+func buy_candies():
+	var current_money = get_after_taxes()
+	
+	if (current_money>0):
+		var shop_node = self.get_node(_shop_path)
+		self.call_deferred("send_money",current_money,shop_node)
+	
+
+func pay_taxes():
 	var before_taxes_money= get_money()
 	var after_taxes_money = before_taxes_money
 	
 	add_money(-after_taxes_money)
 	add_after_taxes(after_taxes_money)
 	
-	yield(get_tree().create_timer(0.5), "timeout")
-	
-	var current_money = get_after_taxes()
-	
-	if (current_money>0):
-		var shop_node = self.get_node(_shop_path)
-		self.call_deferred("send_money",current_money,shop_node)

@@ -28,6 +28,7 @@ extents = Vector2( 44, 67.287 )
 extents = Vector2( 93.713, 47.6834 )
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 1
 position = Vector2( 57, 38 )
 script = ExtResource( 1 )
 _corporate_tax_rate = 0.1
