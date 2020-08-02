@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://KinematicBody2D_slacker.tscn" type="PackedScene" id=2]
-[ext_resource path="res://KinematicBody2D_worker.gd" type="Script" id=3]
+[ext_resource path="res://KinematicBody2D_worker.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Area2D_mine.gd" type="Script" id=4]
 [ext_resource path="res://mine.svg" type="Texture" id=5]
 [ext_resource path="res://Area2D_ore.tscn" type="PackedScene" id=6]
@@ -41,11 +41,8 @@ anims/Walk = SubResource( 1 )
 position = Vector2( 363, 293 )
 _shop_path = NodePath("../StaticBody2D_shop")
 
-[node name="KinematicBody2D_worker" parent="." instance=ExtResource( 2 )]
-modulate = Color( 0.964706, 0.815686, 0.772549, 1 )
-self_modulate = Color( 0.705882, 0.458824, 0.478431, 1 )
-position = Vector2( -11, 291 )
-script = ExtResource( 3 )
+[node name="KinematicBody2D_worker" parent="." instance=ExtResource( 3 )]
+position = Vector2( 12, 290 )
 _shop_path = NodePath("../StaticBody2D_shop")
 _government = NodePath("../StaticBody2D_government")
 
