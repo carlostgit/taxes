@@ -117,3 +117,27 @@ margin_bottom = -88.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.890196, 0.560784, 0.290196, 1 )
 text = "After taxes"
+
+[node name="Button_pay_taxes" type="Button" parent="."]
+margin_left = -114.0
+margin_top = -135.0
+margin_right = -42.0
+margin_bottom = -115.0
+text = "Pay taxes"
+
+[node name="Button_buy_candies" type="Button" parent="."]
+margin_left = -115.0
+margin_top = -100.0
+margin_right = -27.0
+margin_bottom = -80.0
+text = "Buy candies"
+
+[node name="Button_sell_ore" type="Button" parent="."]
+margin_left = -112.0
+margin_top = -165.0
+margin_right = -100.0
+margin_bottom = -145.0
+text = "Sell ore"
+[connection signal="pressed" from="Button_pay_taxes" to="." method="_on_Button_pay_taxes_pressed"]
+[connection signal="pressed" from="Button_buy_candies" to="." method="_on_Button_buy_candies_pressed"]
+[connection signal="pressed" from="Button_sell_ore" to="." method="_on_Button_sell_ore_pressed"]

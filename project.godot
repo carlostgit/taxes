@@ -19,10 +19,6 @@ config/name="Taxes"
 run/main_scene="res://Control.tscn"
 config/icon="res://icon.png"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/width=500

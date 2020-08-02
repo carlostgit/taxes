@@ -6,6 +6,8 @@ extends KinematicBody2D
 
 export var _speed = 10000
 
+export (bool) var _automatic_mode = false
+
 export (NodePath) var _shop_path
 
 const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
@@ -42,6 +44,24 @@ func _process(delta):
 		self.move_and_slide(Vector2(0,step_distance))
 	else:
 		$AnimationPlayer_slacker.stop()
+		
+#	Vista de los botones
+	if (get_money()>0):
+		$Button_pay_taxes.show()
+	else:
+		$Button_pay_taxes.hide()
+	
+	if (get_ore()>0):
+		$Button_sell_ore.show()
+	else:
+		$Button_sell_ore.hide()
+	
+	if (get_after_taxes()>0):
+		$Button_buy_candies.show()
+	else:
+		$Button_buy_candies.hide()
+
+
 
 func set_money(var value_arg):
 	$Label_money.set_text(str(value_arg))
@@ -136,11 +156,13 @@ func on_timer_timeout():
 #	add_money(-after_taxes_money)
 #	add_after_taxes(after_taxes_money)
 	
-	self.call_deferred("pay_taxes")
+	if (_automatic_mode):
+		self.call_deferred("pay_taxes")
 	
 	yield(get_tree().create_timer(0.5), "timeout")
 
-	self.call_deferred("buy_candies")
+	if (_automatic_mode):
+		self.call_deferred("buy_candies")
 	
 #	var current_money = get_after_taxes()
 #
@@ -162,4 +184,29 @@ func pay_taxes():
 	
 	add_money(-after_taxes_money)
 	add_after_taxes(after_taxes_money)
+
+
+func sell_ore():
+	var current_ore = get_ore()
+	if (current_ore > 0):
+		var shop_node = self.get_node(_shop_path)
+		call_deferred("send_ore",current_ore,shop_node)	
+
+#func _on_Button_pressed():
+#	pay_taxes()
+
+func _on_Button_pay_taxes_pressed():
+	pay_taxes()
+
+
+
+func _on_Button_buy_candies_pressed():
+	buy_candies()
+
+
+func _on_Button_sell_ore_pressed():
+	sell_ore()
+
+func set_automatic_mode(var automatic_mode_arg):
+	self._automatic_mode = automatic_mode_arg
 	

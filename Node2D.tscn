@@ -80,6 +80,7 @@ position = Vector2( 136, 192 )
 position = Vector2( 191, 192 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 165, 198 )
 script = ExtResource( 8 )
 _government = NodePath("../StaticBody2D_government")
@@ -122,6 +123,13 @@ margin_right = 51.0
 margin_bottom = -92.0
 custom_colors/font_color = Color( 0.929412, 0.607843, 0.270588, 1 )
 text = "After taxes"
+
+[node name="Button_pay_taxes" type="Button" parent="StaticBody2D_shop"]
+margin_left = -97.0
+margin_top = -127.0
+margin_right = -25.0
+margin_bottom = -107.0
+text = "Pay taxes"
 
 [node name="Node2D_Coin" parent="." instance=ExtResource( 10 )]
 position = Vector2( 144, 229 )
@@ -197,3 +205,4 @@ margin_right = 212.0
 margin_bottom = 31.0
 text = "VAT"
 [connection signal="body_entered" from="Area2D_mine" to="." method="_on_Area2D_mine_body_entered"]
+[connection signal="pressed" from="StaticBody2D_shop/Button_pay_taxes" to="StaticBody2D_shop" method="_on_Button_pay_taxes_pressed"]

@@ -6,6 +6,8 @@ extends StaticBody2D
 
 export (NodePath) var _government
 
+export (bool) var _automatic_mode = false
+
 const MyNode2D_candyResource = preload("res://Area2D_candy.tscn")
 #const MyNode2D_oreResource = preload("res://Area2D_ore.tscn")
 const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
@@ -17,7 +19,12 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	if (get_money()>0):
+		$Button_pay_taxes.show()
+	else:
+		$Button_pay_taxes.hide()
+		
 #	pass
 
 func set_money(var value_arg):
@@ -68,8 +75,8 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	
 	
 #	pay_taxes(taxes)
-
-	call_deferred("pay_taxes",taxes)
+	if (self._automatic_mode):
+		call_deferred("pay_taxes")
 
 func set_ore(var value_arg):
 	$Label_ore.set_text(str(value_arg))
@@ -121,16 +128,16 @@ func hit_candy(var value_arg, var origin_arg, var destiny_arg):
 	add_after_taxes(-value_arg)
 
 ################################
-func pay_taxes(var amount_arg):
-	var coin_gov = MyNode2D_moneyResource.instance()
-	self.get_parent().add_child(coin_gov)
-	coin_gov.set_origin_destiny(self,get_node(_government))
-	coin_gov.set_value(amount_arg)
-	add_money(-amount_arg)	
-	var remaining_money = get_money()
-	if (remaining_money>0):
-		add_money(-remaining_money)
-		add_after_taxes(remaining_money)	
+#func pay_taxes(var amount_arg):
+#	var coin_gov = MyNode2D_moneyResource.instance()
+#	self.get_parent().add_child(coin_gov)
+#	coin_gov.set_origin_destiny(self,get_node(_government))
+#	coin_gov.set_value(amount_arg)
+#	add_money(-amount_arg)	
+#	var remaining_money = get_money()
+#	if (remaining_money>0):
+#		add_money(-remaining_money)
+#		add_after_taxes(remaining_money)	
 
 func send_money(var amount_arg, var destiny_node_arg):
 	if(amount_arg != 0):
@@ -150,3 +157,23 @@ func send_candy(var amount_arg, var destiny_node_arg):
 
 func set_value_added_tax_rate(var rate):
 	_tax_rate = rate
+
+func pay_taxes():
+	var money = get_money()
+	var taxes = _tax_rate*money
+	var coin_gov = MyNode2D_moneyResource.instance()
+	self.get_parent().add_child(coin_gov)
+	coin_gov.set_origin_destiny(self,get_node(_government))
+	coin_gov.set_value(taxes)
+	add_money(-taxes)	
+	var remaining_money = get_money()
+	if (remaining_money>0):
+		add_money(-remaining_money)
+		add_after_taxes(remaining_money)	
+
+func _on_Button_pay_taxes_pressed():
+	self.pay_taxes()
+	
+func set_automatic_mode(var automatic_mode_arg):
+	self._automatic_mode = automatic_mode_arg
+

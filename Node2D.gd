@@ -71,8 +71,20 @@ func reset():
 func set_corporate_tax(var corp_tax_arg):
 	_corporate_tax_rate=corp_tax_arg
 	$Label_corporate_tax_rate.set_text(str(corp_tax_arg))
-
+	$KinematicBody2D_worker.set_corporate_tax_rate(corp_tax_arg)
 
 func set_VAT(var VAT_arg):
 	_value_added_tax=VAT_arg
-	$Label_value_added_tax_rate.set_text(str(VAT_arg))
+
+	$Label_value_added_tax_rate.set_text(str(_value_added_tax))
+	$StaticBody2D_shop.set_value_added_tax_rate(_value_added_tax)
+
+
+func _on_Button_pay_taxes_pressed():
+	pass # Replace with function body.
+
+func set_automatic_mode(var automatic_mode_arg):
+	$KinematicBody2D_slacker.set_automatic_mode(automatic_mode_arg)
+	$KinematicBody2D_worker.set_automatic_mode(automatic_mode_arg)
+	$StaticBody2D_shop.set_automatic_mode(automatic_mode_arg)
+	

@@ -5,10 +5,12 @@ extends Control
 # var b = "text"
 const _main_scene_res = preload("res://Node2D.tscn")
 
+export (bool) var _automatic_mode = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	set_main_scene_parameters()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -17,6 +19,17 @@ func _ready():
 #func _on_Button_pressed():
 #	pass
 
+func get_main_scene():
+	for node in self.get_children():
+		if(node.is_in_group("main_scene_group")):
+			return node
+			
+	if ($Node2D):
+		return $Node2D
+	
+	print("main_scene not found in get_main_scene()")
+	return null		
+	
 
 func _on_Button_reset_pressed():
 	
@@ -30,18 +43,25 @@ func _on_Button_reset_pressed():
 		$Node2D.queue_free()
 	var new_main_scene = _main_scene_res.instance()
 
-#	Configuration parameters	
-	var corp_tax_text = $LineEdit_corp_tax.get_text()
-	var corp_tax_value = float(corp_tax_text)
-	var VAT_text = $LineEdit_VAT.get_text()
-	var VAT_value = float(VAT_text)
-	
-	new_main_scene.set_corporate_tax(corp_tax_value)
-	new_main_scene.set_VAT(VAT_value)
 	self.add_child(new_main_scene)
 	new_main_scene.add_to_group("main_scene_group")
 
-	pass # Replace with function body.
+	set_main_scene_parameters()
+	
+func set_main_scene_parameters():
+#	Configuration parameters	
+	var corp_tax_text = $SpinBox_corp_tax.get_line_edit().get_text()
+	var corp_tax_value = float(corp_tax_text)
+#	var VAT_text = $LineEdit_VAT.get_text()
+	var VAT_text = $SpinBox_VAT.get_line_edit().get_text()
+	var VAT_value = float(VAT_text)
+	
+	if(get_main_scene()):
+		get_main_scene().set_corporate_tax(corp_tax_value)
+		get_main_scene().set_VAT(VAT_value)
+		get_main_scene().set_automatic_mode(_automatic_mode)
+
+
 
 func _on_Button_pause_pressed():
 	
@@ -51,3 +71,20 @@ func _on_Button_pause_pressed():
 		get_tree().paused = true;
 	
 	pass # Replace with function body.
+
+
+func _on_CheckButton_automatic_mode_toggled(button_pressed):
+	_automatic_mode = button_pressed
+	if(get_main_scene()):
+		get_main_scene().set_automatic_mode(_automatic_mode)
+	
+
+	
+
+func _on_SpinBox_VAT_value_changed(value):
+	if(get_main_scene()):
+		get_main_scene().set_VAT(value)
+
+func _on_SpinBox_corp_tax_value_changed(value):
+	if(get_main_scene()):
+		get_main_scene().set_corporate_tax(value)

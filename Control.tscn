@@ -16,23 +16,10 @@ margin_right = 55.0
 margin_bottom = 26.0
 text = "Reset"
 
-[node name="LineEdit_corp_tax" type="LineEdit" parent="."]
-margin_left = 5.0
-margin_top = 37.0
-margin_right = 63.0
-margin_bottom = 61.0
-text = "0.1"
-
-[node name="Node2D" parent="." instance=ExtResource( 2 )]
-pause_mode = 1
+[node name="Node2D" parent="." groups=[
+"main_scene_group",
+] instance=ExtResource( 2 )]
 position = Vector2( 100, 54 )
-
-[node name="LineEdit_VAT" type="LineEdit" parent="."]
-margin_left = 7.0
-margin_top = 73.0
-margin_right = 65.0
-margin_bottom = 97.0
-text = "0.25"
 
 [node name="Label_VAT" type="Label" parent="."]
 margin_left = 76.0
@@ -55,5 +42,33 @@ margin_top = 8.0
 margin_right = 485.0
 margin_bottom = 28.0
 text = "Pause"
+
+[node name="CheckButton_automatic_mode" type="CheckButton" parent="."]
+margin_left = 180.0
+margin_top = -5.0
+margin_right = 256.0
+margin_bottom = 35.0
+text = "Automatic mode"
+
+[node name="SpinBox_VAT" type="SpinBox" parent="."]
+margin_left = 4.0
+margin_top = 74.0
+margin_right = 78.0
+margin_bottom = 98.0
+max_value = 10.0
+step = 0.05
+value = 0.25
+
+[node name="SpinBox_corp_tax" type="SpinBox" parent="."]
+margin_left = 1.0
+margin_top = 37.0
+margin_right = 75.0
+margin_bottom = 61.0
+max_value = 10.0
+step = 0.05
+value = 0.2
 [connection signal="pressed" from="Button_reset" to="." method="_on_Button_reset_pressed"]
 [connection signal="pressed" from="Button_pause" to="." method="_on_Button_pause_pressed"]
+[connection signal="toggled" from="CheckButton_automatic_mode" to="." method="_on_CheckButton_automatic_mode_toggled"]
+[connection signal="value_changed" from="SpinBox_VAT" to="." method="_on_SpinBox_VAT_value_changed"]
+[connection signal="value_changed" from="SpinBox_corp_tax" to="." method="_on_SpinBox_corp_tax_value_changed"]
