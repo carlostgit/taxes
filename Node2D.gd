@@ -5,6 +5,8 @@ extends Node2D
 # var b = "text"
 export (float) var _corporate_tax_rate = 0.25
 export (float) var _value_added_tax = 0.6
+export (bool) var _tax_labour_only = true
+
 
 const MyNode2D_CoinResource = preload("res://Node2D_Coin.tscn")
 const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
@@ -14,10 +16,14 @@ const MyArea2D_candyResource = preload("res://Area2D_candy.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	$Label_corporate_tax_rate.set_text(str(_corporate_tax_rate))
+#	$Label_corporate_tax_rate.set_text(str(_corporate_tax_rate))
 	$KinematicBody2D_worker.set_corporate_tax_rate(_corporate_tax_rate)
-	
-	$Label_value_added_tax_rate.set_text(str(_value_added_tax))
+	if(self._tax_labour_only):
+		$KinematicBody2D_slacker.set_corporate_tax_rate(0.0)
+	else:
+		$KinematicBody2D_slacker.set_corporate_tax_rate(_corporate_tax_rate)
+		
+#	$Label_value_added_tax_rate.set_text(str(_value_added_tax))
 	$StaticBody2D_shop.set_value_added_tax_rate(_value_added_tax)
 	pass # Replace with function body.
 
@@ -70,13 +76,25 @@ func reset():
 	
 func set_corporate_tax(var corp_tax_arg):
 	_corporate_tax_rate=corp_tax_arg
-	$Label_corporate_tax_rate.set_text(str(corp_tax_arg))
+#	$Label_corporate_tax_rate.set_text(str(corp_tax_arg))
 	$KinematicBody2D_worker.set_corporate_tax_rate(corp_tax_arg)
+	if(self._tax_labour_only):
+		$KinematicBody2D_slacker.set_corporate_tax_rate(0.0)
+	else:
+		$KinematicBody2D_slacker.set_corporate_tax_rate(corp_tax_arg)	
+
+func set_tax_labour_only(var tax_labour_only_arg):
+	self._tax_labour_only = tax_labour_only_arg
+	if(self._tax_labour_only):
+		$KinematicBody2D_slacker.set_corporate_tax_rate(0.0)
+	else:
+		$KinematicBody2D_slacker.set_corporate_tax_rate(self._corporate_tax_rate)	
+
 
 func set_VAT(var VAT_arg):
 	_value_added_tax=VAT_arg
 
-	$Label_value_added_tax_rate.set_text(str(_value_added_tax))
+#	$Label_value_added_tax_rate.set_text(str(_value_added_tax))
 	$StaticBody2D_shop.set_value_added_tax_rate(_value_added_tax)
 
 

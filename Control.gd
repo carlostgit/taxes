@@ -6,6 +6,7 @@ extends Control
 const _main_scene_res = preload("res://Node2D.tscn")
 
 export (bool) var _automatic_mode = false
+export (bool) var _tax_labour_only = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,11 +57,13 @@ func set_main_scene_parameters():
 	var VAT_text = $SpinBox_VAT.get_line_edit().get_text()
 	var VAT_value = float(VAT_text)
 	
+	
+	
 	if(get_main_scene()):
 		get_main_scene().set_corporate_tax(corp_tax_value)
 		get_main_scene().set_VAT(VAT_value)
 		get_main_scene().set_automatic_mode(_automatic_mode)
-
+		get_main_scene().set_tax_labour_only(_tax_labour_only)
 
 
 func _on_Button_pause_pressed():
@@ -88,3 +91,12 @@ func _on_SpinBox_VAT_value_changed(value):
 func _on_SpinBox_corp_tax_value_changed(value):
 	if(get_main_scene()):
 		get_main_scene().set_corporate_tax(value)
+		
+
+
+func _on_CheckButton_tax_labour_only_toggled(button_pressed):
+	_tax_labour_only = button_pressed
+	if(get_main_scene()):
+		get_main_scene().set_tax_labour_only(_tax_labour_only)
+
+	

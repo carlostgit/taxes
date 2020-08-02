@@ -4,5 +4,15 @@
 [ext_resource path="res://KinematicBody2D_worker.gd" type="Script" id=2]
 
 [node name="KinematicBody2D_worker" instance=ExtResource( 1 )]
-editor/display_folded = true
 script = ExtResource( 2 )
+
+[node name="Button_work" type="Button" parent="." index="11"]
+margin_left = -109.0
+margin_top = -17.0
+margin_right = -97.0
+margin_bottom = 3.0
+text = "Work"
+
+[node name="Timer_work" type="Timer" parent="." index="12"]
+wait_time = 5.0
+[connection signal="pressed" from="Button_work" to="." method="_on_Button_work_pressed"]

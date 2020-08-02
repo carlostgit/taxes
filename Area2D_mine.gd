@@ -38,3 +38,9 @@ func send_ore_to_worker(var amount_arg):
 	ore.set_value(amount_arg)
 	add_ore(-amount_arg)
 
+func send_1_ore_to_worker():
+	send_ore_to_worker(1)
+
+func _on_KinematicBody2D_worker_working_signal():
+	send_1_ore_to_worker()
+	

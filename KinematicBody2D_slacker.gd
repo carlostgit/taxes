@@ -10,8 +10,12 @@ export (bool) var _automatic_mode = false
 
 export (NodePath) var _shop_path
 
+export (NodePath) var _government
+
 const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
 const MyNode2D_CoinResource = preload("res://Node2D_Coin.tscn")
+
+var _tax_rate = 0.25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,7 +65,8 @@ func _process(delta):
 	else:
 		$Button_buy_candies.hide()
 
-
+func set_corporate_tax_rate(var rate):
+	_tax_rate = rate;
 
 func set_money(var value_arg):
 	$Label_money.set_text(str(value_arg))
@@ -179,11 +184,19 @@ func buy_candies():
 	
 
 func pay_taxes():
-	var before_taxes_money= get_money()
-	var after_taxes_money = before_taxes_money
+	var money_bef_taxes = self.get_money()
+	var taxes = self._tax_rate*money_bef_taxes
+	var money_after_taxes = money_bef_taxes-taxes
 	
-	add_money(-after_taxes_money)
-	add_after_taxes(after_taxes_money)
+	add_after_taxes(money_after_taxes)
+	add_money(-money_after_taxes)
+	
+	if (taxes>0):
+		var coin_gov = MyNode2D_CoinResource.instance()
+		self.get_parent().add_child(coin_gov)
+		coin_gov.set_origin_destiny(self,get_node(_government))
+		coin_gov.set_value(taxes)
+		add_money(-taxes)
 
 
 func sell_ore():

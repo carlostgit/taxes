@@ -16,7 +16,7 @@ var _tax_rate = 0.25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -75,8 +75,8 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	
 	
 #	pay_taxes(taxes)
-	if (self._automatic_mode):
-		call_deferred("pay_taxes")
+#	if (self._automatic_mode):
+#		call_deferred("pay_taxes")
 
 func set_ore(var value_arg):
 	$Label_ore.set_text(str(value_arg))
@@ -160,16 +160,17 @@ func set_value_added_tax_rate(var rate):
 
 func pay_taxes():
 	var money = get_money()
-	var taxes = _tax_rate*money
-	var coin_gov = MyNode2D_moneyResource.instance()
-	self.get_parent().add_child(coin_gov)
-	coin_gov.set_origin_destiny(self,get_node(_government))
-	coin_gov.set_value(taxes)
-	add_money(-taxes)	
-	var remaining_money = get_money()
-	if (remaining_money>0):
-		add_money(-remaining_money)
-		add_after_taxes(remaining_money)	
+	if (money>0):
+		var taxes = _tax_rate*money
+		var coin_gov = MyNode2D_moneyResource.instance()
+		self.get_parent().add_child(coin_gov)
+		coin_gov.set_origin_destiny(self,get_node(_government))
+		coin_gov.set_value(taxes)
+		add_money(-taxes)	
+		var remaining_money = get_money()
+		if (remaining_money>0):
+			add_money(-remaining_money)
+			add_after_taxes(remaining_money)	
 
 func _on_Button_pay_taxes_pressed():
 	self.pay_taxes()
@@ -177,3 +178,10 @@ func _on_Button_pay_taxes_pressed():
 func set_automatic_mode(var automatic_mode_arg):
 	self._automatic_mode = automatic_mode_arg
 
+
+
+func _on_Timer_timeout():
+	if (self._automatic_mode):
+		call_deferred("pay_taxes")
+
+	
