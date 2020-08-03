@@ -7,6 +7,7 @@ export (float) var _corporate_tax_rate = 0.25
 export (float) var _value_added_tax = 0.6
 export (bool) var _tax_labour_only = true
 
+var _GDP = 0.0
 
 const MyNode2D_CoinResource = preload("res://Node2D_Coin.tscn")
 const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
@@ -31,6 +32,11 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
+	_GDP = $KinematicBody2D_worker.get_GDP()
+	
+	$Control_info.set_GDP(_GDP)
+	var revenue = $StaticBody2D_government.get_revenue()
+	$Control_info.set_revenue(revenue)
 #	if Input.is_action_pressed("ui_right"):
 #		$AnimationPlayer_worker.play("Walk")
 #	else:
@@ -51,7 +57,7 @@ func _process(delta):
 
 		
 #		$KinematicBody2D_worker.send_ore(1.0,$StaticBody2D_shop)
-	pass	
+#	pass	
 		
 func _on_Area2D_mine_body_entered(body):
 #	print ("Body entered. Body name")
@@ -105,4 +111,8 @@ func set_automatic_mode(var automatic_mode_arg):
 	$KinematicBody2D_slacker.set_automatic_mode(automatic_mode_arg)
 	$KinematicBody2D_worker.set_automatic_mode(automatic_mode_arg)
 	$StaticBody2D_shop.set_automatic_mode(automatic_mode_arg)
+	
+func get_GDP():
+	return _GDP
+	
 	

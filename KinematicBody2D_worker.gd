@@ -6,7 +6,7 @@ extends "res://KinematicBody2D_slacker.gd"
 
 var _ready_to_work = true
 
-
+var _GDP = 0.0
 
 const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
 
@@ -33,6 +33,8 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 #	var money_after_taxes = value_arg-taxes
 #
 	add_money(value_arg)
+	
+	add_to_GDP(value_arg)
 	
 #	self.call_deferred("pay_taxes",taxes)
 	
@@ -127,4 +129,9 @@ func on_timer_work_timeout():
 	if (_automatic_mode):
 		self.call_deferred("work")
 	
+func add_to_GDP(var value_arg):
+	_GDP += value_arg
+	
+func get_GDP():
+	return _GDP
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Node2D.gd" type="Script" id=1]
 [ext_resource path="res://KinematicBody2D_slacker.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Node2D_Coin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://StaticBody2D_government.gd" type="Script" id=11]
 [ext_resource path="res://government.png" type="Texture" id=12]
+[ext_resource path="res://Control_info.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Walk"
@@ -80,6 +81,7 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 251, 236 )
 script = ExtResource( 8 )
 __meta__ = {
@@ -181,6 +183,55 @@ margin_right = 32.0
 margin_bottom = -78.0
 custom_colors/font_color = Color( 0.54902, 0.913725, 0.537255, 1 )
 text = "Total collected:"
+
+[node name="Control_info" type="Control" parent="."]
+margin_left = 415.0
+margin_top = 375.0
+margin_right = 587.0
+margin_bottom = 479.0
+script = ExtResource( 13 )
+
+[node name="Label_GDP_text" type="Label" parent="Control_info"]
+margin_left = 69.0
+margin_top = 24.0
+margin_right = 109.0
+margin_bottom = 38.0
+text = "GDP"
+
+[node name="Label_GDP" type="Label" parent="Control_info"]
+margin_left = 114.0
+margin_top = 24.0
+margin_right = 154.0
+margin_bottom = 39.0
+text = "0"
+
+[node name="Label_revenue_text" type="Label" parent="Control_info"]
+margin_left = 44.0
+margin_top = 42.0
+margin_right = 99.0
+margin_bottom = 56.0
+text = "Revenue"
+
+[node name="Label_revenue" type="Label" parent="Control_info"]
+margin_left = 116.0
+margin_top = 43.0
+margin_right = 156.0
+margin_bottom = 57.0
+text = "0"
+
+[node name="Label_revenue_per_GDP" type="Label" parent="Control_info"]
+margin_left = 117.0
+margin_top = 62.0
+margin_right = 157.0
+margin_bottom = 76.0
+text = "0"
+
+[node name="Label_revenue_per_GDP_text" type="Label" parent="Control_info"]
+margin_left = 6.0
+margin_top = 62.0
+margin_right = 103.0
+margin_bottom = 76.0
+text = "Tax pressure %"
 [connection signal="working_signal" from="KinematicBody2D_worker" to="Area2D_mine" method="_on_KinematicBody2D_worker_working_signal"]
 [connection signal="body_entered" from="Area2D_mine" to="." method="_on_Area2D_mine_body_entered"]
 [connection signal="pressed" from="StaticBody2D_shop/Button_pay_taxes" to="StaticBody2D_shop" method="_on_Button_pay_taxes_pressed"]

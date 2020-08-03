@@ -71,3 +71,6 @@ func on_timer_timeout():
 	
 	if(current_money > 0.01):
 		call_deferred("send_money",current_money,self.get_node(_slacker_path))
+
+func get_revenue():
+	return self.get_collected()
