@@ -185,6 +185,7 @@ custom_colors/font_color = Color( 0.54902, 0.913725, 0.537255, 1 )
 text = "Total collected:"
 
 [node name="Control_info" type="Control" parent="."]
+editor/display_folded = true
 margin_left = 415.0
 margin_top = 375.0
 margin_right = 587.0

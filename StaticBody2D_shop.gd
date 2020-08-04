@@ -59,7 +59,8 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	
 #
 	var taxes = _tax_rate*value_arg
-	var value_aft_taxes = value_arg - taxes
+	var taxes_rounded = stepify(taxes, 0.01)
+	var value_aft_taxes = value_arg - taxes_rounded
 #
 #	add_after_taxes(value_aft_taxes)
 #	add_money(-value_aft_taxes)
@@ -106,7 +107,8 @@ func hit_ore(var value_arg, var origin_arg, var destiny_arg):
 	
 
 func set_candy(var value_arg):
-	$Label_candy.set_text(str(value_arg))
+	var value_rounded = stepify(value_arg,0.01)
+	$Label_candy.set_text(str(value_rounded))
 
 func get_candy():
 	var value_text = $Label_candy.get_text()
@@ -162,11 +164,12 @@ func pay_taxes():
 	var money = get_money()
 	if (money>0):
 		var taxes = _tax_rate*money
+		var taxes_rounded = stepify(taxes, 0.01)
 		var coin_gov = MyNode2D_moneyResource.instance()
 		self.get_parent().add_child(coin_gov)
 		coin_gov.set_origin_destiny(self,get_node(_government))
-		coin_gov.set_value(taxes)
-		add_money(-taxes)	
+		coin_gov.set_value(taxes_rounded)
+		add_money(-taxes_rounded)	
 		var remaining_money = get_money()
 		if (remaining_money>0):
 			add_money(-remaining_money)

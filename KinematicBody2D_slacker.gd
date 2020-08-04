@@ -108,7 +108,8 @@ func add_ore(var value_arg):
 	set_ore(value+value_arg)
 
 func set_candy(var value_arg):
-	$Label_candy.set_text(str(value_arg))
+	var value_rounded = stepify(value_arg,0.01)
+	$Label_candy.set_text(str(value_rounded))
 
 func get_candy():
 	var value_text = $Label_candy.get_text()
@@ -186,17 +187,18 @@ func buy_candies():
 func pay_taxes():
 	var money_bef_taxes = self.get_money()
 	var taxes = self._tax_rate*money_bef_taxes
-	var money_after_taxes = money_bef_taxes-taxes
+	var taxes_rounded = stepify(taxes, 0.01)
+	var money_after_taxes = money_bef_taxes-taxes_rounded
 	
 	add_after_taxes(money_after_taxes)
 	add_money(-money_after_taxes)
 	
-	if (taxes>0):
+	if (taxes_rounded>0):
 		var coin_gov = MyNode2D_CoinResource.instance()
 		self.get_parent().add_child(coin_gov)
 		coin_gov.set_origin_destiny(self,get_node(_government))
-		coin_gov.set_value(taxes)
-		add_money(-taxes)
+		coin_gov.set_value(taxes_rounded)
+		add_money(-taxes_rounded)
 
 
 func sell_ore():

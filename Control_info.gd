@@ -13,12 +13,14 @@ func _process(delta):
 	if(get_GDP()>0):
 		var tax_pressure_rate = get_revenue()/get_GDP()
 		var tax_pressure_rate_percentage = tax_pressure_rate*100
-		$Label_revenue_per_GDP.set_text(str(tax_pressure_rate_percentage))
+		var tax_pressure_rate_percentage_round = stepify(tax_pressure_rate_percentage,0.1)
+		$Label_revenue_per_GDP.set_text(str(tax_pressure_rate_percentage_round))
 		
 	pass
 
 func set_GDP(var value_arg):
-	$Label_GDP.set_text(str(value_arg))
+	var valure_rounded = stepify(value_arg,0.01)
+	$Label_GDP.set_text(str(valure_rounded))
 
 func get_GDP():
 	var GDP_text = $Label_GDP.get_text()
