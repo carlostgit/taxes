@@ -126,7 +126,7 @@ func work():
 
 	
 func on_timer_work_timeout():
-	if (_automatic_mode):
+	if (_automatic_mode or $CheckButton_auto_work.is_pressed()):
 		self.call_deferred("work")
 	
 func add_to_GDP(var value_arg):

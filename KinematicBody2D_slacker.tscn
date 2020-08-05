@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://KinematicBody2D_slacker.gd" type="Script" id=1]
 [ext_resource path="res://Green-Cap-Character-16x18.png" type="Texture" id=2]
+[ext_resource path="res://coins.png" type="Texture" id=3]
+[ext_resource path="res://ore.png" type="Texture" id=4]
+[ext_resource path="res://candy.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
@@ -79,32 +82,51 @@ anims/up = SubResource( 4 )
 [node name="Label_money" type="Label" parent="."]
 margin_left = -28.0
 margin_top = -140.0
-margin_right = 31.0
-margin_bottom = -109.0
+margin_right = 12.0
+margin_bottom = -126.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 1, 0.941176, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0.945098, 0, 1 )
-text = "Money
-"
+text = "00.00"
+align = 2
+
+[node name="coins" type="Sprite" parent="Label_money"]
+position = Vector2( 44.3949, 5.39393 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+vframes = 4
 
 [node name="Label_ore" type="Label" parent="."]
 margin_left = -30.0
 margin_top = -170.0
-margin_right = 10.0
+margin_right = 11.0
 margin_bottom = -156.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.890196, 0.905882, 0.980392, 1 )
-text = "Ore"
+text = "00.00"
+align = 2
+
+[node name="ore" type="Sprite" parent="Label_ore"]
+position = Vector2( 45.4825, 6.06551 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
 
 [node name="Label_candy" type="Label" parent="."]
 margin_left = -31.0
 margin_top = -201.0
-margin_right = 69.0
-margin_bottom = -181.0
+margin_right = 8.0
+margin_bottom = -187.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.92549, 0.4, 0.831373, 1 )
 custom_colors/font_color_shadow = Color( 0.713726, 0.207843, 0.207843, 1 )
-text = "Candy"
+text = "00.00"
+align = 2
+percent_visible = -0.2
+
+[node name="candy" type="Sprite" parent="Label_candy"]
+position = Vector2( 44.9825, 5.06551 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -112,10 +134,25 @@ wait_time = 2.0
 [node name="Label_after_taxes" type="Label" parent="."]
 margin_left = -25.0
 margin_top = -102.0
-margin_right = 44.0
+margin_right = 18.0
 margin_bottom = -88.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0.890196, 0.560784, 0.290196, 1 )
+text = "00.00"
+align = 2
+
+[node name="coins2" type="Sprite" parent="Label_after_taxes"]
+position = Vector2( 43.602, 6.01615 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+vframes = 4
+
+[node name="Label" type="Label" parent="Label_after_taxes"]
+margin_left = 48.6136
+margin_top = 3.18198
+margin_right = 117.614
+margin_bottom = 17.182
+rect_scale = Vector2( 0.5, 0.5 )
 text = "After taxes"
 
 [node name="Button_pay_taxes" type="Button" parent="."]
