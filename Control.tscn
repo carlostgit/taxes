@@ -23,7 +23,7 @@ text = "Reset"
 [node name="Node2D" parent="." groups=[
 "main_scene_group",
 ] instance=ExtResource( 2 )]
-position = Vector2( 219, 67 )
+position = Vector2( -12, -8 )
 
 [node name="Label_VAT" type="Label" parent="."]
 margin_left = 84.0
@@ -34,10 +34,10 @@ rect_pivot_offset = Vector2( 19.0115, 5.744 )
 text = "VAT"
 
 [node name="Label_corporate_tax" type="Label" parent="."]
-margin_left = 74.0
-margin_top = 43.0
-margin_right = 114.0
-margin_bottom = 57.0
+margin_left = 86.0
+margin_top = 40.0
+margin_right = 171.0
+margin_bottom = 54.0
 text = "Corporate tax"
 
 [node name="Button_pause" type="Button" parent="."]

@@ -30,7 +30,7 @@ extents = Vector2( 93.713, 47.6834 )
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
-position = Vector2( 73, 79 )
+position = Vector2( -1, 1 )
 script = ExtResource( 1 )
 _corporate_tax_rate = 0.1
 _value_added_tax = 0.8
@@ -39,18 +39,18 @@ _value_added_tax = 0.8
 anims/Walk = SubResource( 1 )
 
 [node name="KinematicBody2D_slacker" parent="." instance=ExtResource( 2 )]
-position = Vector2( 439, 287 )
+position = Vector2( 748, 247 )
 _shop_path = NodePath("../StaticBody2D_shop")
 _government = NodePath("../StaticBody2D_government")
 
 [node name="KinematicBody2D_worker" parent="." instance=ExtResource( 3 )]
-position = Vector2( 68, 264 )
+position = Vector2( 273, 284 )
 _shop_path = NodePath("../StaticBody2D_shop")
 _government = NodePath("../StaticBody2D_government")
 
 [node name="Area2D_mine" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( -7, 420 )
+position = Vector2( 90, 366 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -82,7 +82,7 @@ position = Vector2( -189, 201 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 251, 236 )
+position = Vector2( 521, 221 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -143,7 +143,7 @@ position = Vector2( -192, 290 )
 
 [node name="StaticBody2D_government" type="StaticBody2D" parent="."]
 editor/display_folded = true
-position = Vector2( 239, 468 )
+position = Vector2( 514, 451 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
@@ -185,11 +185,10 @@ custom_colors/font_color = Color( 0.54902, 0.913725, 0.537255, 1 )
 text = "Total collected:"
 
 [node name="Control_info" type="Control" parent="."]
-editor/display_folded = true
-margin_left = 415.0
-margin_top = 375.0
-margin_right = 587.0
-margin_bottom = 479.0
+margin_left = 704.0
+margin_top = 397.0
+margin_right = 876.0
+margin_bottom = 501.0
 script = ExtResource( 13 )
 
 [node name="Label_GDP_text" type="Label" parent="Control_info"]

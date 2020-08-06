@@ -4,15 +4,7 @@
 [ext_resource path="res://KinematicBody2D_worker.gd" type="Script" id=2]
 
 [node name="KinematicBody2D_worker" instance=ExtResource( 1 )]
-editor/display_folded = true
 script = ExtResource( 2 )
-
-[node name="Label_money" parent="." index="3"]
-text = "00.00
-"
-
-[node name="Label_after_taxes" parent="." index="7"]
-text = "00.00"
 
 [node name="Button_work" type="Button" parent="." index="11"]
 margin_left = -94.0
