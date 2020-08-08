@@ -2,7 +2,7 @@
 
 [ext_resource path="res://KinematicBody2D_slacker.gd" type="Script" id=1]
 [ext_resource path="res://Green-Cap-Character-16x18.png" type="Texture" id=2]
-[ext_resource path="res://coins.png" type="Texture" id=3]
+[ext_resource path="res://coin.png" type="Texture" id=3]
 [ext_resource path="res://ore.png" type="Texture" id=4]
 [ext_resource path="res://candy.png" type="Texture" id=5]
 
@@ -90,21 +90,24 @@ custom_colors/font_outline_modulate = Color( 0, 0.945098, 0, 1 )
 text = "0"
 align = 2
 
-[node name="coins" type="Sprite" parent="Label_money"]
-position = Vector2( 44.3949, 5.39393 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
-vframes = 4
-
 [node name="Label2" type="Label" parent="Label_money"]
-margin_left = 50.1109
-margin_top = 2.70711
-margin_right = 69.1109
-margin_bottom = 16.7071
+margin_left = 50.818
+margin_top = 4.12133
+margin_right = 69.818
+margin_bottom = 18.1213
 rect_scale = Vector2( 0.5, 0.5 )
 hint_tooltip = "Before Tax"
 mouse_filter = 1
 text = "BT"
+
+[node name="TextureRect" type="TextureRect" parent="Label_money"]
+margin_left = 41.3658
+margin_top = 2.82843
+margin_right = 81.3658
+margin_bottom = 42.8284
+rect_scale = Vector2( 0.2, 0.2 )
+hint_tooltip = "Coins Before Tax"
+texture = ExtResource( 3 )
 
 [node name="Label_ore" type="Label" parent="."]
 margin_left = -101.418
@@ -116,9 +119,13 @@ custom_colors/font_color = Color( 0.890196, 0.905882, 0.980392, 1 )
 text = "0"
 align = 2
 
-[node name="ore" type="Sprite" parent="Label_ore"]
-position = Vector2( 45.4825, 6.06551 )
-scale = Vector2( 0.25, 0.25 )
+[node name="TextureRect" type="TextureRect" parent="Label_ore"]
+margin_left = 42.8323
+margin_top = 3.22225
+margin_right = 85.8323
+margin_bottom = 44.2223
+rect_scale = Vector2( 0.2, 0.2 )
+hint_tooltip = "Ore"
 texture = ExtResource( 4 )
 
 [node name="Label_candy" type="Label" parent="."]
@@ -132,9 +139,13 @@ custom_colors/font_color_shadow = Color( 0.713726, 0.207843, 0.207843, 1 )
 text = "0"
 align = 2
 
-[node name="candy" type="Sprite" parent="Label_candy"]
-position = Vector2( 44.9825, 5.06551 )
-scale = Vector2( 0.2, 0.2 )
+[node name="TextureRect" type="TextureRect" parent="Label_candy"]
+margin_left = 39.5981
+margin_top = 0.353523
+margin_right = 103.598
+margin_bottom = 64.3535
+rect_scale = Vector2( 0.2, 0.2 )
+hint_tooltip = "Candies"
 texture = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -151,11 +162,14 @@ custom_colors/font_color = Color( 0.890196, 0.560784, 0.290196, 1 )
 text = "0"
 align = 2
 
-[node name="coins2" type="Sprite" parent="Label_after_taxes"]
-position = Vector2( 43.602, 6.3697 )
-scale = Vector2( 0.2, 0.2 )
+[node name="TextureRect2" type="TextureRect" parent="Label_after_taxes"]
+margin_left = 39.6821
+margin_top = 1.03136
+margin_right = 79.6821
+margin_bottom = 41.0314
+rect_scale = Vector2( 0.2, 0.2 )
+hint_tooltip = "Coins After Tax"
 texture = ExtResource( 3 )
-vframes = 4
 
 [node name="Label" type="Label" parent="Label_after_taxes"]
 margin_left = 49.7573
