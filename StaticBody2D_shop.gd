@@ -26,6 +26,12 @@ func _process(delta):
 		$Button_pay_taxes.hide()
 		
 #	pass
+#	_tax_rate
+	
+#	var price_before_taxes = price_after_taxes / (1-_tax_rate)
+	var price_before_taxes = 1.0 / (1-_tax_rate)
+	var price_before_taxes_rounded = stepify(price_before_taxes, 0.01)
+	$Control_prices/Label_candy_RP.set_text(str(price_before_taxes_rounded))
 
 func set_money(var value_arg):
 	$Label_money.set_text(str(value_arg))

@@ -125,7 +125,7 @@ margin_top = 3.22225
 margin_right = 85.8323
 margin_bottom = 44.2223
 rect_scale = Vector2( 0.2, 0.2 )
-hint_tooltip = "Ore"
+hint_tooltip = "Ore owned"
 texture = ExtResource( 4 )
 
 [node name="Label_candy" type="Label" parent="."]
@@ -145,7 +145,7 @@ margin_top = 0.353523
 margin_right = 103.598
 margin_bottom = 64.3535
 rect_scale = Vector2( 0.2, 0.2 )
-hint_tooltip = "Candies"
+hint_tooltip = "Candies owned"
 texture = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -201,6 +201,13 @@ margin_top = -162.172
 margin_right = 86.5929
 margin_bottom = -142.172
 text = "Sell ore"
+
+[node name="Label" type="Label" parent="."]
+margin_left = -48.0834
+margin_top = -67.8824
+margin_right = 56.9166
+margin_bottom = -53.8824
+text = "Subsidy receiver"
 [connection signal="pressed" from="Button_pay_taxes" to="." method="_on_Button_pay_taxes_pressed"]
 [connection signal="pressed" from="Button_buy_candies" to="." method="_on_Button_buy_candies_pressed"]
 [connection signal="pressed" from="Button_sell_ore" to="." method="_on_Button_sell_ore_pressed"]
