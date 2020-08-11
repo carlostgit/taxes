@@ -29,7 +29,8 @@ func get_GDP():
 	
 	
 func set_revenue(var value_arg):
-	$Label_revenue.set_text(str(value_arg))
+	var value_arg_rounded = stepify(value_arg, 0.01)
+	$Label_revenue.set_text(str(value_arg_rounded))
 
 func get_revenue():
 	var revenue_text = $Label_revenue.get_text()

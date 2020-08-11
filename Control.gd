@@ -51,13 +51,11 @@ func _on_Button_reset_pressed():
 	
 func set_main_scene_parameters():
 #	Configuration parameters	
-	var corp_tax_text = $SpinBox_corp_tax.get_line_edit().get_text()
-	var corp_tax_value = float(corp_tax_text)
+	var corp_tax_text_percentage = $SpinBox_corp_tax.get_line_edit().get_text()
+	var corp_tax_value = float(corp_tax_text_percentage)/100
 #	var VAT_text = $LineEdit_VAT.get_text()
-	var VAT_text = $SpinBox_VAT.get_line_edit().get_text()
-	var VAT_value = float(VAT_text)
-	
-	
+	var VAT_text_percentage = $SpinBox_VAT.get_line_edit().get_text()
+	var VAT_value = float(VAT_text_percentage)/100
 	
 	if(get_main_scene()):
 		get_main_scene().set_corporate_tax(corp_tax_value)

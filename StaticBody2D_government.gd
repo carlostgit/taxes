@@ -37,7 +37,8 @@ func add_money(var value_arg):
 		add_collected(value_arg)
 
 func set_collected(var value_arg):
-	$Label_collected.set_text(str(value_arg))
+	var value_arg_rounded = stepify(value_arg, 0.01)
+	$Label_collected.set_text(str(value_arg_rounded))
 
 func get_collected():
 	var value_text = $Label_collected.get_text()

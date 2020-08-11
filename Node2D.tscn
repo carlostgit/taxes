@@ -178,6 +178,7 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 452.863, 297.48 )
 script = ExtResource( 12 )
 _government = NodePath("../StaticBody2D_government")
@@ -330,7 +331,6 @@ visible = false
 position = Vector2( -192, 290 )
 
 [node name="StaticBody2D_government" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 512.586, 517.468 )
 script = ExtResource( 15 )
 _slacker_path = NodePath("../KinematicBody2D_slacker")
@@ -353,11 +353,10 @@ text = "0"
 align = 2
 
 [node name="Label_collected" type="Label" parent="StaticBody2D_government"]
-margin_left = -90.0
-margin_top = -98.0
+margin_left = -80.0
+margin_top = -99.0
 margin_right = -18.0
-margin_bottom = -53.0
-rect_scale = Vector2( 0.2, 0.2 )
+margin_bottom = -85.0
 custom_colors/font_color = Color( 0.729412, 1, 0.576471, 1 )
 text = "0"
 align = 2

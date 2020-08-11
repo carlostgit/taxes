@@ -27,18 +27,11 @@ position = Vector2( -12, -8 )
 
 [node name="Label_VAT" type="Label" parent="."]
 margin_left = 84.0
-margin_top = 102.0
+margin_top = 113.314
 margin_right = 124.0
-margin_bottom = 116.0
+margin_bottom = 127.314
 rect_pivot_offset = Vector2( 19.0115, 5.744 )
 text = "VAT"
-
-[node name="Label_corporate_tax" type="Label" parent="."]
-margin_left = 86.0
-margin_top = 40.0
-margin_right = 171.0
-margin_bottom = 54.0
-text = "Corporate tax"
 
 [node name="Button_pause" type="Button" parent="."]
 margin_left = 422.0
@@ -56,27 +49,32 @@ text = "Automatic mode"
 
 [node name="SpinBox_VAT" type="SpinBox" parent="."]
 margin_left = 4.0
-margin_top = 99.0
+margin_top = 108.192
 margin_right = 78.0
-margin_bottom = 123.0
-max_value = 10.0
-step = 0.05
-value = 0.25
+margin_bottom = 132.192
+value = 25.0
+suffix = "%"
 
 [node name="SpinBox_corp_tax" type="SpinBox" parent="."]
-margin_left = 1.0
-margin_top = 37.0
-margin_right = 75.0
-margin_bottom = 61.0
-max_value = 10.0
-step = 0.05
-value = 0.2
+margin_left = 5.94975
+margin_top = 41.2426
+margin_right = 79.9497
+margin_bottom = 65.2426
+value = 20.0
+suffix = "%"
 
-[node name="CheckButton_tax_labour_only" type="CheckButton" parent="."]
-margin_left = -4.0
-margin_top = 62.0
-margin_right = 172.0
-margin_bottom = 102.0
+[node name="Label_corporate_tax" type="Label" parent="SpinBox_corp_tax"]
+margin_left = 77.9289
+margin_top = 5.82843
+margin_right = 162.929
+margin_bottom = 19.8284
+text = "Income Tax"
+
+[node name="CheckButton_tax_labour_only" type="CheckButton" parent="SpinBox_corp_tax"]
+margin_left = -8.53554
+margin_top = 22.1716
+margin_right = 167.464
+margin_bottom = 62.1716
 pressed = true
 text = "Tax labour only"
 [connection signal="pressed" from="Button_reset" to="." method="_on_Button_reset_pressed"]
@@ -84,4 +82,4 @@ text = "Tax labour only"
 [connection signal="toggled" from="CheckButton_automatic_mode" to="." method="_on_CheckButton_automatic_mode_toggled"]
 [connection signal="value_changed" from="SpinBox_VAT" to="." method="_on_SpinBox_VAT_value_changed"]
 [connection signal="value_changed" from="SpinBox_corp_tax" to="." method="_on_SpinBox_corp_tax_value_changed"]
-[connection signal="toggled" from="CheckButton_tax_labour_only" to="." method="_on_CheckButton_tax_labour_only_toggled"]
+[connection signal="toggled" from="SpinBox_corp_tax/CheckButton_tax_labour_only" to="." method="_on_CheckButton_tax_labour_only_toggled"]
