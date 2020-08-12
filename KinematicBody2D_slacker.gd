@@ -26,6 +26,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	process_overridable(delta)
+	
+func process_overridable(var delta):
 	
 	var step_distance = _speed*delta
 	
@@ -50,6 +53,9 @@ func _process(delta):
 		$AnimationPlayer_slacker.stop()
 		
 #	Vista de los botones
+	update_buttons_view()
+	
+func update_buttons_view():
 	if (get_money()>0):
 		$Button_pay_taxes.show()
 	else:
@@ -64,6 +70,7 @@ func _process(delta):
 		$Button_buy_candies.show()
 	else:
 		$Button_buy_candies.hide()
+
 
 func set_corporate_tax_rate(var rate):
 	_tax_rate = rate;

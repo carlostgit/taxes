@@ -21,11 +21,61 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	process_overridable(delta)
+	
+func process_overridable(var delta):
+	
+	var step_distance = _speed*delta
+	
+	if Input.is_action_pressed("ui_left"):
+		$AnimationPlayer_slacker.play("working")
+		$slacker.set_flip_h(false)
+		
+		self.move_and_slide(Vector2(-step_distance,0))
+	elif Input.is_action_pressed("ui_right"):
+		$AnimationPlayer_slacker.play("waiting")
+		$slacker.set_flip_h(true)
+		self.move_and_slide(Vector2(step_distance,0))
+#		add_money(1.1)
+#		update()
+	elif Input.is_action_pressed("ui_up"):
+		$AnimationPlayer_slacker.play("working")
+		self.move_and_slide(Vector2(0,-step_distance))
+	elif Input.is_action_pressed("ui_down"):
+		$AnimationPlayer_slacker.play("waiting")
+		self.move_and_slide(Vector2(0,step_distance))
+	else:
+		$AnimationPlayer_slacker.stop()
+	
+#	pass
+	#	Vista de los botones
+	update_buttons_view()
+	
+func update_buttons_view():
+	
+#	Worker special buttons
 	if (self._ready_to_work and false==self._automatic_mode):
 		$Button_work.show()
 	else:
 		$Button_work.hide()
-#	pass
+
+#	Inherited buttons
+	if (get_money()>0):
+		$Button_pay_taxes.show()
+	else:
+		$Button_pay_taxes.hide()
+	
+	if (get_ore()>0):
+		$Button_sell_ore.show()
+	else:
+		$Button_sell_ore.hide()
+	
+	if (get_after_taxes()>0):
+		$Button_buy_candies.show()
+	else:
+		$Button_buy_candies.hide()
+
+
 
 
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
