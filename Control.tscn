@@ -7,10 +7,10 @@
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 13.0
-margin_top = 9.0
-margin_right = 13.0
-margin_bottom = 9.0
+margin_left = 1.34662
+margin_top = 4.50102
+margin_right = 1.34662
+margin_bottom = 4.50102
 script = ExtResource( 1 )
 
 [node name="Button_reset" type="Button" parent="."]
@@ -23,7 +23,7 @@ text = "Reset"
 [node name="Node2D" parent="." groups=[
 "main_scene_group",
 ] instance=ExtResource( 2 )]
-position = Vector2( -12, -8 )
+position = Vector2( -10.5858, -12.9498 )
 
 [node name="Label_VAT" type="Label" parent="."]
 margin_left = 84.0
