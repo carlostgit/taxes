@@ -25,30 +25,25 @@ func _process(delta):
 	
 func process_overridable(var delta):
 	
-	var step_distance = _speed*delta
+#	var step_distance = _speed*delta
+#
+#	if Input.is_action_pressed("ui_left"):
+#		$AnimationPlayer_slacker.play("working")
+#		$slacker.set_flip_h(false)		
+#		self.move_and_slide(Vector2(-step_distance,0))
+#	elif Input.is_action_pressed("ui_right"):
+#		$AnimationPlayer_slacker.play("waiting")
+#		$slacker.set_flip_h(true)
+#		self.move_and_slide(Vector2(step_distance,0))
+#	elif Input.is_action_pressed("ui_up"):
+#		$AnimationPlayer_slacker.play("working")
+#		self.move_and_slide(Vector2(0,-step_distance))
+#	elif Input.is_action_pressed("ui_down"):
+#		$AnimationPlayer_slacker.play("waiting")
+#		self.move_and_slide(Vector2(0,step_distance))
+#	else:
+#		$AnimationPlayer_slacker.stop()
 	
-	if Input.is_action_pressed("ui_left"):
-		$AnimationPlayer_slacker.play("working")
-		$slacker.set_flip_h(false)
-		
-		self.move_and_slide(Vector2(-step_distance,0))
-	elif Input.is_action_pressed("ui_right"):
-		$AnimationPlayer_slacker.play("waiting")
-		$slacker.set_flip_h(true)
-		self.move_and_slide(Vector2(step_distance,0))
-#		add_money(1.1)
-#		update()
-	elif Input.is_action_pressed("ui_up"):
-		$AnimationPlayer_slacker.play("working")
-		self.move_and_slide(Vector2(0,-step_distance))
-	elif Input.is_action_pressed("ui_down"):
-		$AnimationPlayer_slacker.play("waiting")
-		self.move_and_slide(Vector2(0,step_distance))
-	else:
-		$AnimationPlayer_slacker.stop()
-	
-#	pass
-	#	Vista de los botones
 	update_buttons_view()
 	
 func update_buttons_view():
@@ -169,15 +164,19 @@ func _on_Button_work_pressed():
 	
 func work():
 	if(_ready_to_work):
-		emit_signal("working_signal")
+		
 		_ready_to_work = false
-		yield(get_tree().create_timer(0.5), "timeout")
+		$AnimationPlayer_slacker.play("working")
+		yield(get_tree().create_timer(1.0), "timeout")
+		emit_signal("working_signal")
+		$AnimationPlayer_slacker.play("waiting")
 		_ready_to_work = true
 
 	
 func on_timer_work_timeout():
 	if (_automatic_mode or $CheckButton_auto_work.is_pressed()):
 		self.call_deferred("work")
+		
 	
 func add_to_GDP(var value_arg):
 	_GDP += value_arg

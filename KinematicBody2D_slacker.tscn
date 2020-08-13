@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://KinematicBody2D_slacker.gd" type="Script" id=1]
-[ext_resource path="res://Green-Cap-Character-16x18.png" type="Texture" id=2]
+[ext_resource path="res://Slacker.png" type="Texture" id=2]
 [ext_resource path="res://coin.png" type="Texture" id=3]
 [ext_resource path="res://ore.png" type="Texture" id=4]
 [ext_resource path="res://candy.png" type="Texture" id=5]
@@ -9,55 +9,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "down"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("slacker:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 0, 2 ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("slacker:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 6, 7, 6, 8 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "up"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("slacker:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 3, 4, 3, 5 ]
-}
-
 [node name="KinematicBody2D_slacker" type="KinematicBody2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -68,16 +21,10 @@ shape = SubResource( 1 )
 modulate = Color( 0.929412, 0.713726, 0.713726, 1 )
 use_parent_material = true
 position = Vector2( 0.5, 3.5 )
-scale = Vector2( 5.5625, 5.05556 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-vframes = 4
-hframes = 3
-frame = 6
 
 [node name="AnimationPlayer_slacker" type="AnimationPlayer" parent="."]
-anims/down = SubResource( 2 )
-anims/left = SubResource( 3 )
-anims/up = SubResource( 4 )
 
 [node name="Label_money" type="Label" parent="."]
 margin_left = -98.7107
