@@ -10,7 +10,6 @@
 radius = 27.0
 
 [node name="KinematicBody2D_slacker" type="KinematicBody2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,6 +26,7 @@ texture = ExtResource( 2 )
 [node name="AnimationPlayer_slacker" type="AnimationPlayer" parent="."]
 
 [node name="Label_money" type="Label" parent="."]
+editor/display_folded = true
 margin_left = -98.7107
 margin_top = -136.464
 margin_right = -58.7107
@@ -151,9 +151,9 @@ text = "Sell ore"
 
 [node name="Label" type="Label" parent="."]
 margin_left = -48.0834
-margin_top = -67.8824
+margin_top = -53.8824
 margin_right = 56.9166
-margin_bottom = -53.8824
+margin_bottom = -39.8824
 text = "Subsidy receiver"
 [connection signal="pressed" from="Button_pay_taxes" to="." method="_on_Button_pay_taxes_pressed"]
 [connection signal="pressed" from="Button_buy_candies" to="." method="_on_Button_buy_candies_pressed"]

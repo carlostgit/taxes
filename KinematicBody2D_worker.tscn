@@ -35,7 +35,6 @@ tracks/0/keys = {
 }
 
 [node name="KinematicBody2D_worker" instance=ExtResource( 1 )]
-editor/display_folded = false
 script = ExtResource( 2 )
 
 [node name="slacker" parent="." index="1"]

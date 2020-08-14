@@ -10,6 +10,8 @@ export (bool) var _automatic_mode = false
 
 export (NodePath) var _shop_path
 
+export (NodePath) var _ship_path
+
 export (NodePath) var _government
 
 const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
@@ -210,8 +212,10 @@ func pay_taxes():
 func sell_ore():
 	var current_ore = get_ore()
 	if (current_ore > 0):
-		var shop_node = self.get_node(_shop_path)
-		call_deferred("send_ore",current_ore,shop_node)	
+#		var shop_node = self.get_node(_shop_path)
+#		call_deferred("send_ore",current_ore,shop_node)	
+		var ship_node = self.get_node(_ship_path)
+		call_deferred("send_ore",current_ore,ship_node)	
 
 #func _on_Button_pressed():
 #	pay_taxes()

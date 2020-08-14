@@ -84,11 +84,15 @@ func _on_CheckButton_automatic_mode_toggled(button_pressed):
 
 func _on_SpinBox_VAT_value_changed(value):
 	if(get_main_scene()):
-		get_main_scene().set_VAT(value)
+		var VAT_text_percentage = value
+		var VAT_value = float(VAT_text_percentage)/100
+		get_main_scene().set_VAT(VAT_value)
 
 func _on_SpinBox_corp_tax_value_changed(value):
 	if(get_main_scene()):
-		get_main_scene().set_corporate_tax(value)
+		var corp_tax_text_percentage = value
+		var corp_tax_value = float(corp_tax_text_percentage)/100
+		get_main_scene().set_corporate_tax(corp_tax_value)
 		
 
 

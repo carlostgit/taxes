@@ -46,7 +46,8 @@ func add_money(var value_arg):
 	set_money(value+value_arg)
 
 func set_after_taxes(var value_arg):
-	$Label_after_taxes.set_text(str(value_arg))
+	var value_rounded = stepify(value_arg,0.01)
+	$Label_after_taxes.set_text(str(value_rounded))
 
 func get_after_taxes():
 	var value_text = $Label_after_taxes.get_text()

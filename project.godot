@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=1000
+window/size/height=750
 window/handheld/orientation="portrait"
 
 [input]
