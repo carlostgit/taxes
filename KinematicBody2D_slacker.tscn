@@ -7,9 +7,11 @@
 [ext_resource path="res://candy.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 27.0
+radius = 10.1753
+height = 13.5632
 
 [node name="KinematicBody2D_slacker" type="KinematicBody2D"]
+position = Vector2( 0, -3.00001 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,18 +22,16 @@ shape = SubResource( 1 )
 modulate = Color( 0.929412, 0.713726, 0.713726, 1 )
 use_parent_material = true
 position = Vector2( 0.5, 3.5 )
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer_slacker" type="AnimationPlayer" parent="."]
 
 [node name="Label_money" type="Label" parent="."]
 editor/display_folded = true
-margin_left = -98.7107
-margin_top = -136.464
-margin_right = -58.7107
-margin_bottom = -122.464
-rect_scale = Vector2( 2, 2 )
+margin_left = -68.2106
+margin_top = -84.9639
+margin_right = -28.2106
+margin_bottom = -70.9639
 custom_colors/font_color = Color( 1, 0.941176, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0.945098, 0, 1 )
 text = "0"
@@ -57,11 +57,10 @@ hint_tooltip = "Coins Before Tax"
 texture = ExtResource( 3 )
 
 [node name="Label_ore" type="Label" parent="."]
-margin_left = -101.418
-margin_top = -167.172
-margin_right = -60.4178
-margin_bottom = -153.172
-rect_scale = Vector2( 2, 2 )
+margin_left = -69.4179
+margin_top = -108.172
+margin_right = -28.4177
+margin_bottom = -94.1719
 custom_colors/font_color = Color( 0.890196, 0.905882, 0.980392, 1 )
 text = "0"
 align = 2
@@ -76,11 +75,10 @@ hint_tooltip = "Ore owned"
 texture = ExtResource( 4 )
 
 [node name="Label_candy" type="Label" parent="."]
-margin_left = -97.468
-margin_top = -198.879
-margin_right = -58.468
-margin_bottom = -184.879
-rect_scale = Vector2( 2, 2 )
+margin_left = -66.9679
+margin_top = -128.379
+margin_right = -27.9679
+margin_bottom = -114.379
 custom_colors/font_color = Color( 0.92549, 0.4, 0.831373, 1 )
 custom_colors/font_color_shadow = Color( 0.713726, 0.207843, 0.207843, 1 )
 text = "0"
@@ -92,18 +90,17 @@ margin_top = 0.353523
 margin_right = 103.598
 margin_bottom = 64.3535
 rect_scale = Vector2( 0.2, 0.2 )
-hint_tooltip = "Candies owned"
+hint_tooltip = "Candies bought"
 texture = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="Label_after_taxes" type="Label" parent="."]
-margin_left = -97.4645
-margin_top = -107.414
-margin_right = -58.4645
-margin_bottom = -92.4142
-rect_scale = Vector2( 2, 2 )
+margin_left = -66.9644
+margin_top = -60.9139
+margin_right = -27.9644
+margin_bottom = -45.9141
 hint_tooltip = "After Tax"
 custom_colors/font_color = Color( 0.890196, 0.560784, 0.290196, 1 )
 text = "0"
@@ -129,31 +126,31 @@ mouse_filter = 1
 text = "AT"
 
 [node name="Button_pay_taxes" type="Button" parent="."]
-margin_left = 27.4213
-margin_top = -130.757
-margin_right = 99.4213
-margin_bottom = -110.757
+margin_left = 13.4213
+margin_top = -88.2569
+margin_right = 85.4213
+margin_bottom = -68.2569
 text = "Pay taxes"
 
 [node name="Button_buy_candies" type="Button" parent="."]
-margin_left = 25.0071
-margin_top = -102.121
-margin_right = 114.007
-margin_bottom = -82.1213
+margin_left = 12.5071
+margin_top = -64.6209
+margin_right = 101.507
+margin_bottom = -44.6209
 text = "Buy candies"
 
 [node name="Button_sell_ore" type="Button" parent="."]
-margin_left = 26.5929
-margin_top = -162.172
-margin_right = 86.5929
-margin_bottom = -142.172
+margin_left = 13.5929
+margin_top = -111.672
+margin_right = 73.5929
+margin_bottom = -91.6719
 text = "Sell ore"
 
 [node name="Label" type="Label" parent="."]
-margin_left = -48.0834
-margin_top = -53.8824
-margin_right = 56.9166
-margin_bottom = -39.8824
+margin_left = -41.0834
+margin_top = -40.8824
+margin_right = 63.9166
+margin_bottom = -26.8824
 text = "Subsidy receiver"
 [connection signal="pressed" from="Button_pay_taxes" to="." method="_on_Button_pay_taxes_pressed"]
 [connection signal="pressed" from="Button_buy_candies" to="." method="_on_Button_buy_candies_pressed"]

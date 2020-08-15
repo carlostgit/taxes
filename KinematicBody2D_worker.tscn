@@ -48,10 +48,10 @@ anims/waiting = SubResource( 1 )
 anims/working = SubResource( 2 )
 
 [node name="Label_money" parent="." index="3"]
-margin_left = -76.7107
-margin_top = -120.464
-margin_right = -36.7107
-margin_bottom = -106.464
+margin_left = -51.7107
+margin_top = -93.464
+margin_right = -11.7107
+margin_bottom = -79.464
 
 [node name="Label2" parent="Label_money" index="0"]
 margin_left = 53.318
@@ -66,10 +66,10 @@ margin_right = 83.8658
 margin_bottom = 43.8284
 
 [node name="Label_ore" parent="." index="4"]
-margin_left = -79.418
-margin_top = -151.172
-margin_right = -38.4178
-margin_bottom = -137.172
+margin_left = -52.918
+margin_top = -118.672
+margin_right = -11.9178
+margin_bottom = -104.672
 
 [node name="TextureRect" parent="Label_ore" index="0"]
 margin_left = 45.3323
@@ -78,10 +78,10 @@ margin_right = 88.3323
 margin_bottom = 45.2223
 
 [node name="Label_candy" parent="." index="5"]
-margin_left = -75.468
-margin_top = -182.879
-margin_right = -36.468
-margin_bottom = -168.879
+margin_left = -51.968
+margin_top = -146.879
+margin_right = -12.968
+margin_bottom = -132.879
 
 [node name="TextureRect" parent="Label_candy" index="0"]
 margin_left = 42.0981
@@ -90,10 +90,10 @@ margin_right = 106.098
 margin_bottom = 65.3535
 
 [node name="Label_after_taxes" parent="." index="7"]
-margin_left = -75.4645
-margin_top = -91.414
-margin_right = -36.4645
-margin_bottom = -76.4142
+margin_left = -50.9645
+margin_top = -67.414
+margin_right = -11.9645
+margin_bottom = -52.4142
 
 [node name="TextureRect2" parent="Label_after_taxes" index="0"]
 margin_left = 42.1821
@@ -108,22 +108,22 @@ margin_right = 71.2573
 margin_bottom = 19.0
 
 [node name="Button_pay_taxes" parent="." index="8"]
-margin_left = 54.4213
-margin_top = -112.757
-margin_right = 126.421
-margin_bottom = -92.757
+margin_left = 17.9213
+margin_top = -96.757
+margin_right = 89.9213
+margin_bottom = -76.757
 
 [node name="Button_buy_candies" parent="." index="9"]
-margin_left = 52.0071
-margin_top = -84.121
-margin_right = 141.007
-margin_bottom = -64.121
+margin_left = 18.5071
+margin_top = -71.621
+margin_right = 107.507
+margin_bottom = -51.621
 
 [node name="Button_sell_ore" parent="." index="10"]
-margin_left = 53.5929
-margin_top = -144.172
-margin_right = 113.593
-margin_bottom = -124.172
+margin_left = 17.0929
+margin_top = -122.672
+margin_right = 77.093
+margin_bottom = -102.672
 
 [node name="Button_work" type="Button" parent="." index="11"]
 margin_left = 55.0
@@ -142,9 +142,9 @@ margin_bottom = 40.0
 text = "Auto work"
 
 [node name="Label" parent="." index="14"]
-margin_left = -21.0834
-margin_top = -49.8824
-margin_right = 83.9166
-margin_bottom = -35.8824
+margin_left = -22.5834
+margin_top = -40.8824
+margin_right = 82.4166
+margin_bottom = -26.8824
 text = "Worker"
 [connection signal="pressed" from="Button_work" to="." method="_on_Button_work_pressed"]
