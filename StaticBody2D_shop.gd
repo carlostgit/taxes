@@ -6,6 +6,8 @@ extends StaticBody2D
 
 export (NodePath) var _government
 
+export (NodePath) var _ship
+
 export (bool) var _automatic_mode = false
 
 const MyNode2D_candyResource = preload("res://Area2D_candy.tscn")
@@ -29,6 +31,12 @@ func _process(delta):
 		$Button_pay_taxes.show()
 	else:
 		$Button_pay_taxes.hide()
+	
+	if (get_after_taxes()>0.001):
+		$Button_buy_candies.show()
+	else:
+		$Button_buy_candies.hide()
+	
 	
 #	var price_before_taxes = price_after_taxes / (1-_tax_rate)
 	var price_before_taxes = 1.0 / (1-_tax_rate)
@@ -139,8 +147,8 @@ func add_candy(var value_arg):
 func hit_candy(var value_arg, var origin_arg, var destiny_arg):
 	add_candy(value_arg)
 	
-	call_deferred("send_money",value_arg,origin_arg)
-	add_after_taxes(-value_arg)
+#	call_deferred("send_money",value_arg,origin_arg)
+#	add_after_taxes(-value_arg)
 
 func send_money(var amount_arg, var destiny_node_arg):
 	if(amount_arg != 0):
@@ -177,6 +185,7 @@ func pay_taxes():
 			add_money(-remaining_money)
 			add_after_taxes(remaining_money)	
 
+
 func _on_Button_pay_taxes_pressed():
 	self.pay_taxes()
 	
@@ -186,5 +195,20 @@ func set_automatic_mode(var automatic_mode_arg):
 func _on_Timer_timeout():
 	if (self._automatic_mode):
 		call_deferred("pay_taxes")
+		call_deferred("buy_candies")
 
 
+func buy_candies():
+	var after_taxes = get_after_taxes()
+	if (after_taxes>0.001):
+		var coin_gov = MyNode2D_moneyResource.instance()
+		self.get_parent().add_child(coin_gov)
+		coin_gov.set_origin_destiny(self,get_node(_ship))
+		coin_gov.set_value(after_taxes)
+		add_after_taxes(-after_taxes)
+		
+
+
+func _on_Button_buy_candies_pressed():
+	call_deferred("buy_candies")
+#	pass # Replace with function body.
