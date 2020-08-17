@@ -39,8 +39,7 @@ func add_ore(var value_arg):
 	set_ore(value+value_arg)
 
 func hit_ore(var value_arg, var origin_arg, var destiny_arg):
-	add_ore(value_arg)
-	
+	add_ore(value_arg)	
 	call_deferred("send_money",value_arg, origin_arg)
 
 func send_money(var amount_arg, var destiny_node_arg):

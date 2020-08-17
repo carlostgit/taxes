@@ -29,7 +29,6 @@ func add_ore(var value_arg):
 	var value = get_ore()
 	set_ore(value+value_arg)
 
-	
 func send_ore_to_worker(var amount_arg):
 	var ore = MyArea2D_oreResource.instance()
 	self.get_parent().add_child(ore)
@@ -39,8 +38,7 @@ func send_ore_to_worker(var amount_arg):
 	add_ore(-amount_arg)
 
 func send_1_ore_to_worker():
-	send_ore_to_worker(1)
+	send_ore_to_worker(1.0)
 
 func _on_KinematicBody2D_worker_working_signal():
 	send_1_ore_to_worker()
-	

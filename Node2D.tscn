@@ -44,7 +44,6 @@ _corporate_tax_rate = 0.1
 _value_added_tax = 0.8
 
 [node name="ship" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 124.575, 414.909 )
 script = ExtResource( 2 )
 
@@ -174,6 +173,23 @@ texture = ExtResource( 6 )
 position = Vector2( 3.53555, 3.53554 )
 shape = SubResource( 1 )
 
+[node name="Label_label" type="Label" parent="ship"]
+margin_left = -62.9498
+margin_top = -77.1716
+margin_right = 5.05024
+margin_bottom = -63.1716
+custom_colors/font_color = Color( 1, 0.247059, 0.882353, 1 )
+text = "0"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="ship/Label_label"]
+margin_left = 70.1251
+margin_top = -3.05176e-005
+margin_right = 134.125
+margin_bottom = 64.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
 [node name="AnimationPlayer_worker" type="AnimationPlayer" parent="."]
 anims/Walk = SubResource( 2 )
 
@@ -236,7 +252,6 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 526.523, 417.203 )
 script = ExtResource( 13 )
 _government = NodePath("../StaticBody2D_government")
@@ -250,20 +265,20 @@ position = Vector2( 0.163952, 9.4159 )
 texture = ExtResource( 14 )
 
 [node name="Label_money" type="Label" parent="StaticBody2D_shop"]
-margin_left = -33.3347
-margin_top = -61.5354
-margin_right = 4.66534
-margin_bottom = -47.5354
+margin_left = -63.4142
+margin_top = -62.0
+margin_right = 3.58582
+margin_bottom = -48.0
 hint_tooltip = "Coins Before Tax"
 custom_colors/font_color = Color( 0.913725, 0.952941, 0.254902, 1 )
 text = "0"
 align = 2
 
 [node name="TextureRect" type="TextureRect" parent="StaticBody2D_shop/Label_money"]
-margin_left = 43.0
-margin_top = 1.18933
-margin_right = 83.0
-margin_bottom = 41.1893
+margin_left = 71.9915
+margin_top = 3.31067
+margin_right = 111.991
+margin_bottom = 43.3107
 rect_scale = Vector2( 0.2, 0.2 )
 hint_tooltip = "Coins Before Tax"
 texture = ExtResource( 4 )
@@ -391,6 +406,7 @@ visible = false
 position = Vector2( -192, 290 )
 
 [node name="StaticBody2D_government" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 525.77, 630.581 )
 script = ExtResource( 16 )
 _slacker_path = NodePath("../KinematicBody2D_slacker")
@@ -459,7 +475,6 @@ margin_bottom = -25.5651
 text = "Government"
 
 [node name="Control_info" type="Control" parent="."]
-editor/display_folded = true
 margin_left = 679.257
 margin_top = 608.059
 margin_right = 979.257

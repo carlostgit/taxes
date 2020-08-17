@@ -29,14 +29,10 @@ func get_main_scene():
 		return $Node2D
 	
 	print("main_scene not found in get_main_scene()")
-	return null		
-	
+	return null
 
 func _on_Button_reset_pressed():
 	
-	
-#	Delete and create main node	
-#	$Node2D.reset()
 	for node in self.get_children():
 		if(node.is_in_group("main_scene_group")):
 			node.queue_free()
@@ -79,9 +75,6 @@ func _on_CheckButton_automatic_mode_toggled(button_pressed):
 	if(get_main_scene()):
 		get_main_scene().set_automatic_mode(_automatic_mode)
 	
-
-	
-
 func _on_SpinBox_VAT_value_changed(value):
 	if(get_main_scene()):
 		var VAT_text_percentage = value
@@ -93,12 +86,8 @@ func _on_SpinBox_corp_tax_value_changed(value):
 		var corp_tax_text_percentage = value
 		var corp_tax_value = float(corp_tax_text_percentage)/100
 		get_main_scene().set_corporate_tax(corp_tax_value)
-		
-
 
 func _on_CheckButton_tax_labour_only_toggled(button_pressed):
 	_tax_labour_only = button_pressed
 	if(get_main_scene()):
 		get_main_scene().set_tax_labour_only(_tax_labour_only)
-
-	

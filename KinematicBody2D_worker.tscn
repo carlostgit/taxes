@@ -35,6 +35,7 @@ tracks/0/keys = {
 }
 
 [node name="KinematicBody2D_worker" instance=ExtResource( 1 )]
+editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="slacker" parent="." index="1"]
@@ -133,7 +134,7 @@ margin_bottom = 6.0
 text = "Work"
 
 [node name="Timer_work" type="Timer" parent="." index="12"]
-wait_time = 5.0
+wait_time = 0.5
 
 [node name="CheckButton_auto_work" type="CheckButton" parent="." index="13"]
 margin_left = 47.0
@@ -143,8 +144,6 @@ text = "Auto work"
 
 [node name="Label" parent="." index="14"]
 margin_left = -22.5834
-margin_top = -40.8824
 margin_right = 82.4166
-margin_bottom = -26.8824
 text = "Worker"
 [connection signal="pressed" from="Button_work" to="." method="_on_Button_work_pressed"]

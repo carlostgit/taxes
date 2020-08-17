@@ -8,7 +8,8 @@ export (NodePath) var _slacker_path
 
 const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
 
-
+var _money:float = 0.0
+var _collected:float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,14 +21,16 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func set_money(var value_arg):
-	$Label_money.set_text(str(value_arg))
+	var value_rounded = stepify(value_arg, 0.01)
+	$Label_money.set_text(str(value_rounded))
+	self._money = value_arg
 
 func get_money():
-	var value_text = $Label_money.get_text()
-	var value = float(value_text)
-	return value
+#	var value_text = $Label_money.get_text()
+#	var value = float(value_text)
+#	return value
+	return self._money
 
 func add_money(var value_arg):
 	var value = get_money()
@@ -39,25 +42,21 @@ func add_money(var value_arg):
 func set_collected(var value_arg):
 	var value_arg_rounded = stepify(value_arg, 0.01)
 	$Label_collected.set_text(str(value_arg_rounded))
+	self._collected = value_arg
+	
 
 func get_collected():
-	var value_text = $Label_collected.get_text()
-	var value = float(value_text)
-	return value
+#	var value_text = $Label_collected.get_text()
+#	var value = float(value_text)
+#	return value
+	return self._collected
 
 func add_collected(var value_arg):
 	var value = get_collected()
 	set_collected(value+value_arg)
 
-
 func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	add_money(value_arg)
-	
-#		var coin = MyNode2D_moneyResource.instance()
-#		self.get_parent().add_child(coin)
-#		coin.set_origin_destiny(self,self.get_node(_slacker_path))
-#		coin.set_value(current_money)
-#		add_money(-current_money)
 		
 #Deferred functions
 func send_money(var amount_arg, var destiny_node_arg):

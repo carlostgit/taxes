@@ -27,7 +27,6 @@ texture = ExtResource( 2 )
 [node name="AnimationPlayer_slacker" type="AnimationPlayer" parent="."]
 
 [node name="Label_money" type="Label" parent="."]
-editor/display_folded = true
 margin_left = -68.2106
 margin_top = -84.9639
 margin_right = -28.2106
@@ -42,7 +41,6 @@ margin_left = 50.818
 margin_top = 4.12133
 margin_right = 69.818
 margin_bottom = 18.1213
-rect_scale = Vector2( 0.5, 0.5 )
 hint_tooltip = "Before Tax"
 mouse_filter = 1
 text = "BT"
@@ -120,7 +118,6 @@ margin_left = 49.7573
 margin_top = 1.99999
 margin_right = 68.7573
 margin_bottom = 18.0
-rect_scale = Vector2( 0.5, 0.5 )
 hint_tooltip = "Ater Tax"
 mouse_filter = 1
 text = "AT"
