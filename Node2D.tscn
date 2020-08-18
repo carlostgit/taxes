@@ -253,6 +253,7 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 526.523, 417.203 )
 script = ExtResource( 13 )
 _government = NodePath("../StaticBody2D_government")

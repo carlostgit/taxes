@@ -8,6 +8,7 @@ export var _speed = 10000
 
 export (bool) var _automatic_mode = false
 
+
 export (NodePath) var _shop_path
 
 export (NodePath) var _ship_path

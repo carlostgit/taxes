@@ -49,7 +49,7 @@ func process_overridable(var delta):
 func update_buttons_view():
 	
 #	Worker special buttons
-	if (self._ready_to_work and self._automatic_mode):
+	if (self._ready_to_work):
 		$Button_work.show()
 	else:
 		$Button_work.hide()

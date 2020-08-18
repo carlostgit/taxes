@@ -69,7 +69,7 @@ func send_money(var amount_arg, var destiny_node_arg):
 func on_timer_timeout():
 	var current_money = get_money()
 	
-	if(current_money > 0.01):
+	if(current_money >= 0.01):
 		call_deferred("send_money",current_money,self.get_node(_slacker_path))
 
 func get_revenue():

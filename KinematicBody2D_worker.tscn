@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[node name="KinematicBody2D_worker" index="0" instance=ExtResource( 1 )]
+[node name="KinematicBody2D_worker" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="slacker" parent="." index="1"]

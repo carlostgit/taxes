@@ -35,15 +35,18 @@ func _on_Button_reset_pressed():
 	
 	for node in self.get_children():
 		if(node.is_in_group("main_scene_group")):
+			node.remove_from_group("main_scene_group")
 			node.queue_free()
+			
 	if ($Node2D):
+		$Node2D.remove_from_group("main_scene_group")
 		$Node2D.queue_free()
 	var new_main_scene = _main_scene_res.instance()
 
 	self.add_child(new_main_scene)
 	new_main_scene.add_to_group("main_scene_group")
 
-	set_main_scene_parameters()
+	call_deferred("set_main_scene_parameters")
 	
 func set_main_scene_parameters():
 #	Configuration parameters	
@@ -64,8 +67,10 @@ func _on_Button_pause_pressed():
 	
 	if (get_tree().paused):
 		get_tree().paused = false;
+		$Button_pause/Label_paused.hide()
 	else:
 		get_tree().paused = true;
+		$Button_pause/Label_paused.show()
 	
 	pass # Replace with function body.
 
@@ -87,7 +92,16 @@ func _on_SpinBox_corp_tax_value_changed(value):
 		var corp_tax_value = float(corp_tax_text_percentage)/100
 		get_main_scene().set_corporate_tax(corp_tax_value)
 
-func _on_CheckButton_tax_labour_only_toggled(button_pressed):
-	_tax_labour_only = button_pressed
+#func _on_CheckButton_tax_labour_only_toggled(button_pressed):
+#	_tax_labour_only = button_pressed
+#	if(get_main_scene()):
+#		get_main_scene().set_tax_labour_only(_tax_labour_only)
+
+
+func _on_CheckButton_tax_subsidies_too_toggled(button_pressed):
+	if (button_pressed):
+		_tax_labour_only = false
+	else:
+		_tax_labour_only = true
 	if(get_main_scene()):
 		get_main_scene().set_tax_labour_only(_tax_labour_only)
