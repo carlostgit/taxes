@@ -44,6 +44,7 @@ _corporate_tax_rate = 0.1
 _value_added_tax = 0.8
 
 [node name="ship" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 124.575, 414.909 )
 script = ExtResource( 2 )
 

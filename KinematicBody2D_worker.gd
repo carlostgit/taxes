@@ -49,7 +49,7 @@ func process_overridable(var delta):
 func update_buttons_view():
 	
 #	Worker special buttons
-	if (self._ready_to_work and false==self._automatic_mode):
+	if (self._ready_to_work and self._automatic_mode):
 		$Button_work.show()
 	else:
 		$Button_work.hide()
@@ -108,7 +108,7 @@ func work():
 		_ready_to_work = true
 
 func on_timer_work_timeout():
-	if (_automatic_mode or $CheckButton_auto_work.is_pressed()):
+	if ($CheckButton_auto_work.is_pressed()):
 		self.call_deferred("work")
 
 func add_to_GDP(var value_arg):
@@ -117,3 +117,10 @@ func add_to_GDP(var value_arg):
 func get_GDP():
 	return _GDP
 	
+func set_automatic_mode(var automatic_mode_arg):
+	.set_automatic_mode(automatic_mode_arg) #llama al método de la clase padre
+	if(automatic_mode_arg):
+		$CheckButton_auto_work.set_pressed(true)
+	else:
+		$CheckButton_auto_work.set_pressed(false)
+		
