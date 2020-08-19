@@ -195,8 +195,9 @@ func set_automatic_mode(var automatic_mode_arg):
 func _on_Timer_timeout():
 	if (self._automatic_mode):
 		call_deferred("pay_taxes")
+		yield(get_tree().create_timer(0.5), "timeout")
 		call_deferred("buy_candies")
-
+		
 
 func buy_candies():
 	var after_taxes = get_after_taxes()

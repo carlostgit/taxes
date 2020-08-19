@@ -35,10 +35,11 @@ tracks/0/keys = {
 }
 
 [node name="KinematicBody2D_worker" instance=ExtResource( 1 )]
+editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="slacker" parent="." index="1"]
-position = Vector2( 0.5, 2.5 )
+position = Vector2( 0.155098, 3.00001 )
 texture = ExtResource( 3 )
 vframes = 3
 frame = 2
@@ -48,101 +49,88 @@ anims/waiting = SubResource( 1 )
 anims/working = SubResource( 2 )
 
 [node name="Label_money" parent="." index="3"]
-margin_left = -51.7107
-margin_top = -93.464
-margin_right = -11.7107
-margin_bottom = -79.464
+margin_left = -40.0
+margin_right = 0.0
 
 [node name="Label2" parent="Label_money" index="0"]
-margin_left = 53.318
-margin_top = 5.12133
-margin_right = 72.318
-margin_bottom = 19.1213
+margin_left = 56.1551
+margin_right = 75.1551
 
 [node name="TextureRect" parent="Label_money" index="1"]
 margin_left = 43.8658
-margin_top = 3.82843
+margin_top = 2.75656
 margin_right = 83.8658
-margin_bottom = 43.8284
+margin_bottom = 42.7566
 
 [node name="Label_ore" parent="." index="4"]
-margin_left = -52.918
-margin_top = -118.672
-margin_right = -11.9178
-margin_bottom = -104.672
+margin_left = -40.0
+margin_right = 0.0
 
 [node name="TextureRect" parent="Label_ore" index="0"]
-margin_left = 45.3323
-margin_top = 4.22225
-margin_right = 88.3323
-margin_bottom = 45.2223
+margin_left = 43.8658
+margin_top = 2.00002
+margin_right = 86.8658
+margin_bottom = 43.0001
 
 [node name="Label_candy" parent="." index="5"]
-margin_left = -51.968
-margin_top = -146.879
-margin_right = -12.968
-margin_bottom = -132.879
+margin_left = -40.0
+margin_top = -117.0
+margin_right = 0.0
+margin_bottom = -103.0
 
 [node name="TextureRect" parent="Label_candy" index="0"]
-margin_left = 42.0981
-margin_top = 1.35352
-margin_right = 106.098
-margin_bottom = 65.3535
+margin_left = 42.0
+margin_right = 106.0
 
 [node name="Label_after_taxes" parent="." index="7"]
-margin_left = -50.9645
-margin_top = -67.414
-margin_right = -11.9645
-margin_bottom = -52.4142
+margin_left = -40.0
+margin_right = 0.0
 
 [node name="TextureRect2" parent="Label_after_taxes" index="0"]
-margin_left = 42.1821
-margin_top = 2.03136
-margin_right = 82.1821
-margin_bottom = 42.0314
+margin_left = 43.8658
+margin_top = 3.00002
+margin_right = 83.8658
+margin_bottom = 43.0001
 
 [node name="Label" parent="Label_after_taxes" index="1"]
-margin_left = 52.2573
-margin_top = 2.99999
-margin_right = 71.2573
-margin_bottom = 19.0
+margin_left = 56.1551
+margin_right = 75.1551
+margin_bottom = 14.0
 
 [node name="Button_pay_taxes" parent="." index="8"]
-margin_left = 17.9213
-margin_top = -96.757
-margin_right = 89.9213
-margin_bottom = -76.757
+margin_left = 40.0
+margin_right = 112.0
 
 [node name="Button_buy_candies" parent="." index="9"]
-margin_left = 18.5071
-margin_top = -71.621
-margin_right = 107.507
-margin_bottom = -51.621
+margin_left = 40.0
+margin_right = 129.0
 
 [node name="Button_sell_ore" parent="." index="10"]
-margin_left = 17.0929
-margin_top = -122.672
-margin_right = 77.093
-margin_bottom = -102.672
+margin_left = 40.0
+margin_right = 100.0
+margin_bottom = -77.0
 
 [node name="Button_work" type="Button" parent="." index="11"]
-margin_left = 55.0
-margin_top = -14.0
+margin_left = 50.0
+margin_top = -17.0
 margin_right = 100.0
-margin_bottom = 6.0
+margin_bottom = 3.0
 text = "Work"
 
 [node name="Timer_work" type="Timer" parent="." index="12"]
 wait_time = 0.5
 
 [node name="CheckButton_auto_work" type="CheckButton" parent="." index="13"]
-margin_left = 47.0
-margin_right = 191.0
-margin_bottom = 40.0
+margin_left = 50.0
+margin_top = 3.00001
+margin_right = 200.0
+margin_bottom = 43.0
 text = "Auto work"
 
 [node name="Label" parent="." index="14"]
-margin_left = -22.5834
-margin_right = 82.4166
+margin_left = -10.0
+margin_top = -37.0
+margin_right = 40.0
+margin_bottom = -23.0
 text = "Worker"
 [connection signal="pressed" from="Button_work" to="." method="_on_Button_work_pressed"]
