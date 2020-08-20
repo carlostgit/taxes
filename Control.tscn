@@ -3,32 +3,45 @@
 [ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://Node2D.tscn" type="PackedScene" id=2]
 
-[node name="Control" type="Control"]
+[node name="Control" type="ScrollContainer"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 1 )
 
-[node name="Button_reset" type="Button" parent="."]
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1250.0
+margin_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 1250, 800 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button_reset" type="Button" parent="Panel"]
 margin_left = 615.804
 margin_top = 29.3274
 margin_right = 663.804
 margin_bottom = 49.3274
 text = "Reset"
 
-[node name="Node2D" parent="." groups=[
+[node name="Node2D" parent="Panel" groups=[
 "main_scene_group",
 ] instance=ExtResource( 2 )]
 position = Vector2( 1.06755, -0.672569 )
 
-[node name="Button_pause" type="Button" parent="."]
+[node name="Button_pause" type="Button" parent="Panel"]
+editor/display_folded = true
 margin_left = 511.068
 margin_top = 29.3274
 margin_right = 574.068
 margin_bottom = 49.3274
 text = "Pause"
 
-[node name="Label_paused" type="Label" parent="Button_pause"]
+[node name="Label_paused" type="Label" parent="Panel/Button_pause"]
 visible = false
 margin_left = -60.9325
 margin_top = 54.0
@@ -37,14 +50,15 @@ margin_bottom = 68.0
 rect_scale = Vector2( 4, 4 )
 text = "Paused"
 
-[node name="CheckButton_automatic_mode" type="CheckButton" parent="."]
+[node name="CheckButton_automatic_mode" type="CheckButton" parent="Panel"]
 margin_left = 291.068
 margin_top = 19.3274
 margin_right = 478.068
 margin_bottom = 59.3274
 text = "Automatic mode"
 
-[node name="SpinBox_VAT" type="SpinBox" parent="."]
+[node name="SpinBox_VAT" type="SpinBox" parent="Panel"]
+editor/display_folded = true
 margin_left = 41.0676
 margin_top = 119.327
 margin_right = 115.068
@@ -53,7 +67,7 @@ max_value = 99.0
 value = 25.0
 suffix = "%"
 
-[node name="Label_VAT" type="Label" parent="SpinBox_VAT"]
+[node name="Label_VAT" type="Label" parent="Panel/SpinBox_VAT"]
 margin_left = 77.9289
 margin_top = 4.97277
 margin_right = 117.929
@@ -61,7 +75,8 @@ margin_bottom = 18.9728
 rect_pivot_offset = Vector2( 19.0115, 5.744 )
 text = "VAT"
 
-[node name="SpinBox_corp_tax" type="SpinBox" parent="."]
+[node name="SpinBox_corp_tax" type="SpinBox" parent="Panel"]
+editor/display_folded = true
 margin_left = 41.0676
 margin_top = 49.3274
 margin_right = 115.068
@@ -69,21 +84,21 @@ margin_bottom = 73.3274
 value = 20.0
 suffix = "%"
 
-[node name="Label_corporate_tax" type="Label" parent="SpinBox_corp_tax"]
+[node name="Label_corporate_tax" type="Label" parent="Panel/SpinBox_corp_tax"]
 margin_left = 77.9289
 margin_top = 5.82843
 margin_right = 162.929
 margin_bottom = 19.8284
 text = "Income Tax"
 
-[node name="CheckButton_tax_subsidies_too" type="CheckButton" parent="SpinBox_corp_tax"]
+[node name="CheckButton_tax_subsidies_too" type="CheckButton" parent="Panel/SpinBox_corp_tax"]
 margin_top = 21.7228
 margin_right = 191.0
 margin_bottom = 61.7228
 text = "Tax subsidies too"
-[connection signal="pressed" from="Button_reset" to="." method="_on_Button_reset_pressed"]
-[connection signal="pressed" from="Button_pause" to="." method="_on_Button_pause_pressed"]
-[connection signal="toggled" from="CheckButton_automatic_mode" to="." method="_on_CheckButton_automatic_mode_toggled"]
-[connection signal="value_changed" from="SpinBox_VAT" to="." method="_on_SpinBox_VAT_value_changed"]
-[connection signal="value_changed" from="SpinBox_corp_tax" to="." method="_on_SpinBox_corp_tax_value_changed"]
-[connection signal="toggled" from="SpinBox_corp_tax/CheckButton_tax_subsidies_too" to="." method="_on_CheckButton_tax_subsidies_too_toggled"]
+[connection signal="pressed" from="Panel/Button_reset" to="." method="_on_Button_reset_pressed"]
+[connection signal="pressed" from="Panel/Button_pause" to="." method="_on_Button_pause_pressed"]
+[connection signal="toggled" from="Panel/CheckButton_automatic_mode" to="." method="_on_CheckButton_automatic_mode_toggled"]
+[connection signal="value_changed" from="Panel/SpinBox_VAT" to="." method="_on_SpinBox_VAT_value_changed"]
+[connection signal="value_changed" from="Panel/SpinBox_corp_tax" to="." method="_on_SpinBox_corp_tax_value_changed"]
+[connection signal="toggled" from="Panel/SpinBox_corp_tax/CheckButton_tax_subsidies_too" to="." method="_on_CheckButton_tax_subsidies_too_toggled"]

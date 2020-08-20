@@ -1,4 +1,4 @@
-extends Control
+extends ScrollContainer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -25,8 +25,8 @@ func get_main_scene():
 		if(node.is_in_group("main_scene_group")):
 			return node
 			
-	if ($Node2D):
-		return $Node2D
+	if ($Panel/Node2D):
+		return $Panel/Node2D
 	
 	print("main_scene not found in get_main_scene()")
 	return null
@@ -38,9 +38,9 @@ func _on_Button_reset_pressed():
 			node.remove_from_group("main_scene_group")
 			node.queue_free()
 			
-	if ($Node2D):
-		$Node2D.remove_from_group("main_scene_group")
-		$Node2D.queue_free()
+	if ($Panel/Node2D):
+		$Panel/Node2D.remove_from_group("main_scene_group")
+		$Panel/Node2D.queue_free()
 	var new_main_scene = _main_scene_res.instance()
 
 	self.add_child(new_main_scene)
@@ -50,10 +50,10 @@ func _on_Button_reset_pressed():
 	
 func set_main_scene_parameters():
 #	Configuration parameters	
-	var corp_tax_text_percentage = $SpinBox_corp_tax.get_line_edit().get_text()
+	var corp_tax_text_percentage = $Panel/SpinBox_corp_tax.get_line_edit().get_text()
 	var corp_tax_value = float(corp_tax_text_percentage)/100
 #	var VAT_text = $LineEdit_VAT.get_text()
-	var VAT_text_percentage = $SpinBox_VAT.get_line_edit().get_text()
+	var VAT_text_percentage = $Panel/SpinBox_VAT.get_line_edit().get_text()
 	var VAT_value = float(VAT_text_percentage)/100
 	
 	if(get_main_scene()):
@@ -67,10 +67,10 @@ func _on_Button_pause_pressed():
 	
 	if (get_tree().paused):
 		get_tree().paused = false;
-		$Button_pause/Label_paused.hide()
+		$Panel/Button_pause/Label_paused.hide()
 	else:
 		get_tree().paused = true;
-		$Button_pause/Label_paused.show()
+		$Panel/Button_pause/Label_paused.show()
 	
 	pass # Replace with function body.
 
