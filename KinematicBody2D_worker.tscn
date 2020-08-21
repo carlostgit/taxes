@@ -74,9 +74,7 @@ margin_bottom = 43.0001
 
 [node name="Label_candy" parent="." index="5"]
 margin_left = -40.0
-margin_top = -117.0
 margin_right = 0.0
-margin_bottom = -103.0
 
 [node name="TextureRect" parent="Label_candy" index="0"]
 margin_left = 42.0
@@ -108,28 +106,27 @@ margin_right = 129.0
 [node name="Button_sell_ore" parent="." index="10"]
 margin_left = 40.0
 margin_right = 100.0
-margin_bottom = -77.0
 
 [node name="Button_work" type="Button" parent="." index="11"]
 margin_left = 50.0
-margin_top = -17.0
+margin_top = -27.0
 margin_right = 100.0
-margin_bottom = 3.0
+margin_bottom = 13.0
 text = "Work"
 
 [node name="Timer_work" type="Timer" parent="." index="12"]
 wait_time = 0.5
 
 [node name="CheckButton_auto_work" type="CheckButton" parent="." index="13"]
-margin_left = 50.0
-margin_top = 3.00001
-margin_right = 200.0
-margin_bottom = 43.0
+margin_left = 100.0
+margin_top = -64.0
+margin_right = 250.0
+margin_bottom = -3.99995
+rect_scale = Vector2( 2, 2 )
 text = "Auto work"
 
 [node name="Label" parent="." index="14"]
 margin_left = -10.0
-margin_top = -37.0
 margin_right = 40.0
 margin_bottom = -23.0
 text = "Worker"

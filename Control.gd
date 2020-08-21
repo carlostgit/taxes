@@ -1,4 +1,4 @@
-extends ScrollContainer
+extends Control
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,6 +10,11 @@ export (bool) var _tax_labour_only = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var screenSize = get_viewport().get_visible_rect().size
+#	print(screenSize)
+#	$Panel.set_size(screenSize)
+	$Panel/Label_reso.set_text(str(screenSize))
+	
 	set_main_scene_parameters()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,29 +26,31 @@ func _ready():
 #	pass
 
 func get_main_scene():
-	for node in self.get_children():
+	for node in $Panel/ScrollContainer/Panel.get_children():
 		if(node.is_in_group("main_scene_group")):
 			return node
 			
-	if ($Panel/Node2D):
-		return $Panel/Node2D
+	if ($Panel/ScrollContainer/Panel/Node2D):
+		return $Panel/ScrollContainer/Panel/Node2D
 	
 	print("main_scene not found in get_main_scene()")
 	return null
 
 func _on_Button_reset_pressed():
 	
-	for node in self.get_children():
+	
+	for node in $Panel/ScrollContainer/Panel.get_children():
 		if(node.is_in_group("main_scene_group")):
 			node.remove_from_group("main_scene_group")
 			node.queue_free()
 			
-	if ($Panel/Node2D):
-		$Panel/Node2D.remove_from_group("main_scene_group")
-		$Panel/Node2D.queue_free()
+	if ($Panel/ScrollContainer/Panel/Node2D):
+		$Panel/ScrollContainer/Panel/Node2D.remove_from_group("main_scene_group")
+		$Panel/ScrollContainer/Panel/Node2D.queue_free()
 	var new_main_scene = _main_scene_res.instance()
 
-	self.add_child(new_main_scene)
+	$Panel/ScrollContainer/Panel.add_child(new_main_scene)
+#	self.add_child(new_main_scene)
 	new_main_scene.add_to_group("main_scene_group")
 
 	call_deferred("set_main_scene_parameters")

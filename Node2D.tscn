@@ -38,13 +38,14 @@ extents = Vector2( 19.415, 15.834 )
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
-position = Vector2( -1, 1 )
+position = Vector2( -2.88199, 1 )
 script = ExtResource( 1 )
 _corporate_tax_rate = 0.1
 _value_added_tax = 0.8
 
 [node name="ship" type="StaticBody2D" parent="."]
-position = Vector2( 124.536, 421.294 )
+editor/display_folded = true
+position = Vector2( 72.8027, 247.304 )
 script = ExtResource( 2 )
 
 [node name="Label_int_prices" type="Label" parent="ship"]
@@ -194,20 +195,20 @@ texture = ExtResource( 3 )
 anims/Walk = SubResource( 2 )
 
 [node name="KinematicBody2D_slacker" parent="." instance=ExtResource( 7 )]
-position = Vector2( 861, 429 )
+position = Vector2( 962.882, 255.807 )
 _shop_path = NodePath("../StaticBody2D_shop")
 _ship_path = NodePath("../ship")
 _government = NodePath("../StaticBody2D_government")
 
 [node name="KinematicBody2D_worker" parent="." instance=ExtResource( 8 )]
-position = Vector2( 170.45, 626 )
+position = Vector2( 131.903, 445.455 )
 _shop_path = NodePath("../StaticBody2D_shop")
 _ship_path = NodePath("../ship")
 _government = NodePath("../StaticBody2D_government")
 
 [node name="Area2D_mine" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 135.325, 629 )
+position = Vector2( 96.7777, 449.262 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -255,8 +256,7 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 526.523, 417.203 )
+position = Vector2( 552.882, 244.01 )
 script = ExtResource( 13 )
 _government = NodePath("../StaticBody2D_government")
 _ship = NodePath("../ship")
@@ -271,9 +271,9 @@ texture = ExtResource( 14 )
 
 [node name="Label_money" type="Label" parent="StaticBody2D_shop"]
 margin_left = -65.4142
-margin_top = -67.5
+margin_top = -85.2029
 margin_right = 1.58582
-margin_bottom = -53.5
+margin_bottom = -71.2029
 hint_tooltip = "Coins Before Tax"
 custom_colors/font_color = Color( 0.913725, 0.952941, 0.254902, 1 )
 text = "0"
@@ -290,9 +290,9 @@ texture = ExtResource( 4 )
 
 [node name="Label_ore" type="Label" parent="StaticBody2D_shop"]
 margin_left = -33.4382
-margin_top = -86.7984
+margin_top = -115.773
 margin_right = 2.56178
-margin_bottom = -72.7984
+margin_bottom = -101.773
 text = "0"
 align = 2
 
@@ -307,9 +307,9 @@ texture = ExtResource( 5 )
 
 [node name="Label_candy" type="Label" parent="StaticBody2D_shop"]
 margin_left = -65.3344
-margin_top = -106.035
+margin_top = -146.709
 margin_right = 2.66556
-margin_bottom = -92.0354
+margin_bottom = -132.709
 hint_tooltip = "Candies sold"
 custom_colors/font_color = Color( 0.988235, 0.509804, 0.811765, 1 )
 text = "0"
@@ -326,9 +326,9 @@ texture = ExtResource( 3 )
 
 [node name="Label_after_taxes" type="Label" parent="StaticBody2D_shop"]
 margin_left = -58.7487
-margin_top = -45.7071
+margin_top = -55.203
 margin_right = 3.25131
-margin_bottom = -31.7071
+margin_bottom = -41.203
 hint_tooltip = "Coins After Tax"
 custom_colors/font_color = Color( 0.929412, 0.607843, 0.270588, 1 )
 text = "0"
@@ -344,10 +344,10 @@ hint_tooltip = "Coins After Tax"
 texture = ExtResource( 4 )
 
 [node name="Button_pay_taxes" type="Button" parent="StaticBody2D_shop"]
-margin_left = 27.8664
-margin_top = -71.8594
-margin_right = 99.8664
-margin_bottom = -51.8594
+margin_left = 27.0
+margin_top = -95.0
+margin_right = 99.0
+margin_bottom = -65.0
 text = "Pay taxes"
 
 [node name="Timer" type="Timer" parent="StaticBody2D_shop"]
@@ -407,10 +407,11 @@ rect_scale = Vector2( 2, 2 )
 text = "="
 
 [node name="Button_buy_candies" type="Button" parent="StaticBody2D_shop"]
-margin_left = 27.0001
-margin_top = -49.5002
+margin_left = 27.0
+margin_top = -65.0
 margin_right = 116.0
-margin_bottom = -29.5002
+margin_bottom = -45.0
+rect_scale = Vector2( 2, 2 )
 text = "Buy candies"
 
 [node name="Node2D_Coin" parent="." instance=ExtResource( 15 )]
@@ -418,7 +419,7 @@ visible = false
 position = Vector2( -192, 290 )
 
 [node name="StaticBody2D_government" type="StaticBody2D" parent="."]
-position = Vector2( 529.847, 626 )
+position = Vector2( 556.206, 452.807 )
 script = ExtResource( 16 )
 _slacker_path = NodePath("../KinematicBody2D_slacker")
 
@@ -489,56 +490,56 @@ margin_bottom = -18.0
 text = "Government"
 
 [node name="Control_info" type="Control" parent="."]
-margin_left = 641.0
-margin_top = 563.0
-margin_right = 981.0
-margin_bottom = 683.0
+margin_left = 667.359
+margin_top = 389.807
+margin_right = 1007.36
+margin_bottom = 509.807
 script = ExtResource( 18 )
 
 [node name="Label_GDP_text" type="Label" parent="Control_info"]
-margin_left = 130.0
-margin_right = 170.0
+margin_left = 205.523
+margin_right = 245.523
 margin_bottom = 15.0
 rect_scale = Vector2( 2, 2 )
 text = "GDP"
 align = 2
 
 [node name="Label_GDP" type="Label" parent="Control_info"]
-margin_left = 230.0
+margin_left = 305.523
 margin_top = 3.0
-margin_right = 265.0
+margin_right = 340.523
 margin_bottom = 17.0
 rect_scale = Vector2( 2, 2 )
 text = "0"
 
 [node name="Label_revenue_text" type="Label" parent="Control_info"]
-margin_left = 100.0
+margin_left = 175.523
 margin_top = 30.0
-margin_right = 155.0
+margin_right = 230.523
 margin_bottom = 45.0
 rect_scale = Vector2( 2, 2 )
 text = "Revenue"
 
 [node name="Label_revenue" type="Label" parent="Control_info"]
-margin_left = 230.0
+margin_left = 305.523
 margin_top = 30.0
-margin_right = 265.0
+margin_right = 340.523
 margin_bottom = 44.0
 rect_scale = Vector2( 2, 2 )
 text = "0"
 
 [node name="Label_revenue_per_GDP" type="Label" parent="Control_info"]
-margin_left = 230.0
+margin_left = 305.523
 margin_top = 60.0
-margin_right = 270.0
+margin_right = 345.523
 margin_bottom = 75.0
 rect_scale = Vector2( 2, 2 )
 text = "0"
 
 [node name="Label_revenue_per_GDP_text" type="Label" parent="Control_info"]
-margin_left = 10.0
+margin_left = 85.523
 margin_top = 60.0
-margin_right = 110.0
+margin_right = 185.523
 margin_bottom = 75.0
 rect_scale = Vector2( 2, 2 )
 text = "Tax pressure %"
