@@ -25,6 +25,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+editor/display_folded = true
 margin_top = 150.0
 margin_right = 1090.0
 margin_bottom = 690.0
@@ -131,6 +132,12 @@ margin_right = 520.0
 margin_bottom = 114.0
 rect_scale = Vector2( 2, 2 )
 text = "Resolucion"
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 730.0
+margin_top = 140.0
+margin_right = 1078.0
+margin_bottom = 215.0
 [connection signal="pressed" from="Panel/Button_pause" to="." method="_on_Button_pause_pressed"]
 [connection signal="toggled" from="Panel/CheckButton_automatic_mode" to="." method="_on_CheckButton_automatic_mode_toggled"]
 [connection signal="value_changed" from="Panel/SpinBox_VAT" to="." method="_on_SpinBox_VAT_value_changed"]

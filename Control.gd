@@ -112,3 +112,16 @@ func _on_CheckButton_tax_subsidies_too_toggled(button_pressed):
 		_tax_labour_only = true
 	if(get_main_scene()):
 		get_main_scene().set_tax_labour_only(_tax_labour_only)
+
+func _gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			print("I've been clicked D:")
+			
+	if event is InputEventMagnifyGesture:
+		var factor = event.get_factor()
+		print("Magnifying: "+str(factor))
+	
+	$ItemList.add_item(event.as_text())
+	$ItemList.select($ItemList.get_item_count()-1)
+	$ItemList.ensure_current_is_visible()
