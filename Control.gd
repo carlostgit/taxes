@@ -114,14 +114,24 @@ func _on_CheckButton_tax_subsidies_too_toggled(button_pressed):
 		get_main_scene().set_tax_labour_only(_tax_labour_only)
 
 func _gui_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			print("I've been clicked D:")
-			
-	if event is InputEventMagnifyGesture:
-		var factor = event.get_factor()
-		print("Magnifying: "+str(factor))
-	
-	$ItemList.add_item(event.as_text())
-	$ItemList.select($ItemList.get_item_count()-1)
-	$ItemList.ensure_current_is_visible()
+	if ($CheckButton_show_debug_log.is_pressed()):
+		if event is InputEventMouseButton:
+			if event.button_index == BUTTON_LEFT and event.pressed:
+				print("I've been clicked D:")
+				
+		if event is InputEventMagnifyGesture:
+			var factor = event.get_factor()
+			print("Magnifying: "+str(factor))
+		
+		$CheckButton_show_debug_log/ItemList_log.add_item(event.as_text())
+		$CheckButton_show_debug_log/ItemList_log.select($CheckButton_show_debug_log/ItemList_log.get_item_count()-1)
+		$CheckButton_show_debug_log/ItemList_log.ensure_current_is_visible()
+		
+
+func _on_CheckButton_show_debug_log_toggled(button_pressed):
+	if (button_pressed==false):
+		$CheckButton_show_debug_log/ItemList_log.hide()
+		$CheckButton_show_debug_log/ItemList_log.clear()
+	else:
+		$CheckButton_show_debug_log/ItemList_log.show()
+	pass # Replace with function body.
