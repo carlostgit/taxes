@@ -7,7 +7,7 @@
 [ext_resource path="res://ship.png" type="Texture" id=5]
 [ext_resource path="res://candy.png" type="Texture" id=6]
 [ext_resource path="res://KinematicBody2D_slacker.tscn" type="PackedScene" id=7]
-[ext_resource path="res://KinematicBody2D_worker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Worker.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Area2D_mine.gd" type="Script" id=9]
 [ext_resource path="res://Rock.png" type="Texture" id=10]
 [ext_resource path="res://Area2D_ore.tscn" type="PackedScene" id=11]
@@ -44,6 +44,7 @@ _corporate_tax_rate = 0.1
 _value_added_tax = 0.8
 
 [node name="ship" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 81, 189.392 )
 script = ExtResource( 2 )
 
@@ -208,15 +209,15 @@ anims/Walk = SubResource( 2 )
 
 [node name="KinematicBody2D_slacker" parent="." instance=ExtResource( 7 )]
 position = Vector2( 850.104, 229 )
-_shop_path = NodePath("../StaticBody2D_shop")
+_shop_path = NodePath("../shop")
 _ship_path = NodePath("../ship")
-_government = NodePath("../StaticBody2D_government")
+_government = NodePath("../government")
 
-[node name="KinematicBody2D_worker" parent="." instance=ExtResource( 8 )]
+[node name="Worker" parent="." instance=ExtResource( 8 )]
 position = Vector2( 226.235, 349 )
-_shop_path = NodePath("../StaticBody2D_shop")
+_shop_path = NodePath("../shop")
 _ship_path = NodePath("../ship")
-_government = NodePath("../StaticBody2D_government")
+_government = NodePath("../government")
 
 [node name="Area2D_mine" type="Area2D" parent="."]
 editor/display_folded = true
@@ -225,7 +226,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
-_node_path_worker = NodePath("../KinematicBody2D_worker")
+_node_path_worker = NodePath("../Worker")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_mine"]
 position = Vector2( 0.878677, 6.94977 )
@@ -269,21 +270,20 @@ position = Vector2( -184, 127 )
 visible = false
 position = Vector2( -189, 201 )
 
-[node name="StaticBody2D_shop" type="StaticBody2D" parent="."]
+[node name="shop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 491.356, 229 )
 script = ExtResource( 13 )
-_government = NodePath("../StaticBody2D_government")
-_ship = NodePath("../ship")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_shop"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shop"]
 position = Vector2( -1.55388, 10.4965 )
 shape = SubResource( 4 )
 
-[node name="shop" type="Sprite" parent="StaticBody2D_shop"]
+[node name="shop" type="Sprite" parent="shop"]
 position = Vector2( 0.163952, 9.4159 )
 texture = ExtResource( 14 )
 
-[node name="Label_money" type="Label" parent="StaticBody2D_shop"]
+[node name="Label_money" type="Label" parent="shop"]
 margin_left = -81.0
 margin_top = -90.0
 margin_right = -20.0
@@ -295,7 +295,7 @@ text = "0"
 align = 2
 valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D_shop/Label_money"]
+[node name="TextureRect" type="TextureRect" parent="shop/Label_money"]
 margin_left = 67.3553
 margin_top = 7.69232
 margin_right = 107.355
@@ -304,7 +304,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 hint_tooltip = "Coins Before Tax"
 texture = ExtResource( 4 )
 
-[node name="Label_ore" type="Label" parent="StaticBody2D_shop"]
+[node name="Label_ore" type="Label" parent="shop"]
 margin_left = -81.0
 margin_top = -120.0
 margin_right = -20.0
@@ -314,7 +314,7 @@ text = "0"
 align = 2
 valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D_shop/Label_ore"]
+[node name="TextureRect" type="TextureRect" parent="shop/Label_ore"]
 margin_left = 66.1951
 margin_top = 6.21002
 margin_right = 109.195
@@ -323,7 +323,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 hint_tooltip = "Ore"
 texture = ExtResource( 3 )
 
-[node name="Label_candy" type="Label" parent="StaticBody2D_shop"]
+[node name="Label_candy" type="Label" parent="shop"]
 margin_left = -91.0
 margin_top = -150.0
 margin_right = -22.0
@@ -335,7 +335,7 @@ text = "0"
 align = 2
 valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D_shop/Label_candy"]
+[node name="TextureRect" type="TextureRect" parent="shop/Label_candy"]
 margin_left = 73.8874
 margin_top = 4.46155
 margin_right = 137.887
@@ -344,7 +344,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 hint_tooltip = "Candies sold"
 texture = ExtResource( 6 )
 
-[node name="Label_after_taxes" type="Label" parent="StaticBody2D_shop"]
+[node name="Label_after_taxes" type="Label" parent="shop"]
 margin_left = -81.0
 margin_top = -60.0
 margin_right = -19.0
@@ -356,7 +356,7 @@ text = "0"
 align = 2
 valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D_shop/Label_after_taxes"]
+[node name="TextureRect" type="TextureRect" parent="shop/Label_after_taxes"]
 margin_left = 67.3095
 margin_top = 5.55427
 margin_right = 107.31
@@ -365,7 +365,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 hint_tooltip = "Coins After Tax"
 texture = ExtResource( 4 )
 
-[node name="Button_pay_taxes" type="Button" parent="StaticBody2D_shop"]
+[node name="Button_pay_taxes" type="Button" parent="shop"]
 margin_left = 27.0
 margin_top = -90.0
 margin_right = 99.0
@@ -373,9 +373,9 @@ margin_bottom = -67.0
 rect_scale = Vector2( 1.3, 1.3 )
 text = "Pay taxes"
 
-[node name="Timer" type="Timer" parent="StaticBody2D_shop"]
+[node name="Timer" type="Timer" parent="shop"]
 
-[node name="Label" type="Label" parent="StaticBody2D_shop"]
+[node name="Label" type="Label" parent="shop"]
 margin_left = -26.9014
 margin_top = -24.9195
 margin_right = 46.0986
@@ -383,7 +383,7 @@ margin_bottom = -10.9194
 rect_scale = Vector2( 1.3, 1.3 )
 text = "Candy shop"
 
-[node name="Button_buy_candies" type="Button" parent="StaticBody2D_shop"]
+[node name="Button_buy_candies" type="Button" parent="shop"]
 margin_left = 27.0
 margin_top = -60.0
 margin_right = 116.0
@@ -391,13 +391,13 @@ margin_bottom = -37.0
 rect_scale = Vector2( 1.3, 1.3 )
 text = "Buy candies"
 
-[node name="Control_prices" type="Panel" parent="StaticBody2D_shop"]
+[node name="Control_prices" type="Panel" parent="shop"]
 margin_left = 75.0
 margin_top = -190.0
 margin_right = 269.0
 margin_bottom = -117.0
 
-[node name="TextureRect_candy_RP" type="TextureRect" parent="StaticBody2D_shop/Control_prices"]
+[node name="TextureRect_candy_RP" type="TextureRect" parent="shop/Control_prices"]
 margin_left = 17.7392
 margin_top = 42.747
 margin_right = 81.7392
@@ -405,7 +405,7 @@ margin_bottom = 106.747
 rect_scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
 
-[node name="Label_candy_RP" type="Label" parent="StaticBody2D_shop/Control_prices"]
+[node name="Label_candy_RP" type="Label" parent="shop/Control_prices"]
 margin_left = 64.8132
 margin_top = 42.747
 margin_right = 92.8132
@@ -414,7 +414,7 @@ rect_scale = Vector2( 2, 2 )
 text = "1.00"
 align = 2
 
-[node name="TextureRect4" type="TextureRect" parent="StaticBody2D_shop/Control_prices"]
+[node name="TextureRect4" type="TextureRect" parent="shop/Control_prices"]
 margin_left = 127.739
 margin_top = 47.7212
 margin_right = 167.739
@@ -422,7 +422,7 @@ margin_bottom = 87.7212
 rect_scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 
-[node name="Label_retail_prices" type="Label" parent="StaticBody2D_shop/Control_prices"]
+[node name="Label_retail_prices" type="Label" parent="shop/Control_prices"]
 margin_left = 17.7392
 margin_top = 10.0
 margin_right = 105.739
@@ -430,7 +430,7 @@ margin_bottom = 24.0
 rect_scale = Vector2( 2, 2 )
 text = "Retail Prices"
 
-[node name="Label_eq_candy_RP" type="Label" parent="StaticBody2D_shop/Control_prices"]
+[node name="Label_eq_candy_RP" type="Label" parent="shop/Control_prices"]
 margin_left = 51.1286
 margin_top = 42.747
 margin_right = 59.1286
@@ -442,21 +442,22 @@ text = "="
 visible = false
 position = Vector2( -192, 290 )
 
-[node name="StaticBody2D_government" type="StaticBody2D" parent="."]
+[node name="government" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 580.419, 392.543 )
 script = ExtResource( 16 )
 _slacker_path = NodePath("../KinematicBody2D_slacker")
 
-[node name="government" type="Sprite" parent="StaticBody2D_government"]
+[node name="government" type="Sprite" parent="government"]
 position = Vector2( 2.3978, -4.64916e-006 )
 scale = Vector2( 1.04175, 1 )
 texture = ExtResource( 17 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D_government"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="government"]
 position = Vector2( 3.65625, 2.99998 )
 shape = SubResource( 5 )
 
-[node name="Label_money" type="Label" parent="StaticBody2D_government"]
+[node name="Label_money" type="Label" parent="government"]
 margin_left = -91.0
 margin_top = -103.0
 margin_right = -29.0
@@ -468,7 +469,7 @@ text = "0"
 align = 2
 valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D_government/Label_money"]
+[node name="TextureRect" type="TextureRect" parent="government/Label_money"]
 margin_left = 67.4432
 margin_top = 5.21368
 margin_right = 107.443
@@ -477,7 +478,7 @@ rect_scale = Vector2( 0.3, 0.3 )
 hint_tooltip = "Coins stored"
 texture = ExtResource( 4 )
 
-[node name="Label_collected" type="Label" parent="StaticBody2D_government"]
+[node name="Label_collected" type="Label" parent="government"]
 margin_left = -110.0
 margin_top = -74.0
 margin_right = -33.0
@@ -489,7 +490,7 @@ text = "0"
 align = 2
 valign = 1
 
-[node name="TextureRect2" type="TextureRect" parent="StaticBody2D_government/Label_collected"]
+[node name="TextureRect2" type="TextureRect" parent="government/Label_collected"]
 margin_left = 82.0585
 margin_top = 6.45697
 margin_right = 122.059
@@ -498,7 +499,7 @@ rect_scale = Vector2( 0.3, 0.3 )
 hint_tooltip = "Tax Revenue"
 texture = ExtResource( 4 )
 
-[node name="Label_collected_text" type="Label" parent="StaticBody2D_government/Label_collected"]
+[node name="Label_collected_text" type="Label" parent="government/Label_collected"]
 margin_left = 99.0
 margin_right = 197.0
 margin_bottom = 18.0
@@ -507,9 +508,9 @@ custom_colors/font_color = Color( 0.54902, 0.913725, 0.537255, 1 )
 text = "Tax revenue"
 valign = 1
 
-[node name="Timer" type="Timer" parent="StaticBody2D_government"]
+[node name="Timer" type="Timer" parent="government"]
 
-[node name="Label" type="Label" parent="StaticBody2D_government"]
+[node name="Label" type="Label" parent="government"]
 margin_left = -29.0
 margin_top = -37.0
 margin_right = 61.0
@@ -583,8 +584,8 @@ visible = false
 position = Vector2( 509.118, 379.01 )
 scale = Vector2( 32, 32 )
 texture = ExtResource( 19 )
-[connection signal="working_signal" from="KinematicBody2D_worker" to="Area2D_mine" method="_on_KinematicBody2D_worker_working_signal"]
+[connection signal="working_signal" from="Worker" to="Area2D_mine" method="_on_Worker_working_signal"]
 [connection signal="body_entered" from="Area2D_mine" to="." method="_on_Area2D_mine_body_entered"]
-[connection signal="pressed" from="StaticBody2D_shop/Button_pay_taxes" to="StaticBody2D_shop" method="_on_Button_pay_taxes_pressed"]
-[connection signal="timeout" from="StaticBody2D_shop/Timer" to="StaticBody2D_shop" method="_on_Timer_timeout"]
-[connection signal="pressed" from="StaticBody2D_shop/Button_buy_candies" to="StaticBody2D_shop" method="_on_Button_buy_candies_pressed"]
+[connection signal="pressed" from="shop/Button_pay_taxes" to="shop" method="_on_Button_pay_taxes_pressed"]
+[connection signal="timeout" from="shop/Timer" to="shop" method="_on_Timer_timeout"]
+[connection signal="pressed" from="shop/Button_buy_candies" to="shop" method="_on_Button_buy_candies_pressed"]

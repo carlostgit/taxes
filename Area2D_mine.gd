@@ -40,5 +40,8 @@ func send_ore_to_worker(var amount_arg):
 func send_1_ore_to_worker():
 	send_ore_to_worker(1.0)
 
-func _on_KinematicBody2D_worker_working_signal():
+#func _on_KinematicBody2D_worker_working_signal():
+#	send_1_ore_to_worker()
+
+func _on_Worker_working_signal():
 	send_1_ore_to_worker()

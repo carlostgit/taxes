@@ -4,9 +4,11 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 
-export (NodePath) var _government
+#export (NodePath) var _government
 
-export (NodePath) var _ship
+export (NodePath) var _government = "../government"
+
+export (NodePath) var _ship = "../ship"
 
 export (bool) var _automatic_mode = false
 

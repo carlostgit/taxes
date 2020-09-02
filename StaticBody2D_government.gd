@@ -15,8 +15,7 @@ var _collected:float = 0.0
 func _ready():
 	$Timer.connect("timeout",self,"on_timer_timeout")
 	$Timer.start()
-	pass # Replace with function body.
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -27,9 +26,6 @@ func set_money(var value_arg):
 	self._money = value_arg
 
 func get_money():
-#	var value_text = $Label_money.get_text()
-#	var value = float(value_text)
-#	return value
 	return self._money
 
 func add_money(var value_arg):
@@ -46,9 +42,6 @@ func set_collected(var value_arg):
 	
 
 func get_collected():
-#	var value_text = $Label_collected.get_text()
-#	var value = float(value_text)
-#	return value
 	return self._collected
 
 func add_collected(var value_arg):

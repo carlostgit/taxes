@@ -36,9 +36,6 @@ func set_origin_destiny(var origin_arg, var destiny_arg):
 	pass
 
 func get_value():
-#	var value_text = $Label.get_text()
-#	var value = float(value_text)
-#	return value
 	return self._amount
 	
 func set_value(var value_arg):

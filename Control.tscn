@@ -25,7 +25,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
-editor/display_folded = true
 margin_top = 150.0
 margin_right = 1090.0
 margin_bottom = 690.0
@@ -44,7 +43,6 @@ custom_styles/panel = SubResource( 1 )
 position = Vector2( 0, 6 )
 
 [node name="Button_pause" type="Button" parent="Panel"]
-editor/display_folded = true
 margin_left = 650.0
 margin_top = 90.0
 margin_right = 700.0
@@ -71,7 +69,6 @@ hint_tooltip = "Automatic mode. If activated, each actor will pay taxes, buy can
 text = "Automatic mode:"
 
 [node name="SpinBox_VAT" type="SpinBox" parent="Panel"]
-editor/display_folded = true
 margin_left = 91.789
 margin_top = 20.0
 margin_right = 165.789
@@ -92,7 +89,6 @@ text = "VAT:"
 valign = 1
 
 [node name="SpinBox_corp_tax" type="SpinBox" parent="Panel"]
-editor/display_folded = true
 margin_left = 450.0
 margin_top = 20.0
 margin_right = 524.0
