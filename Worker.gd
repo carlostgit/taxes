@@ -1,4 +1,4 @@
-extends "res://KinematicBody2D_slacker.gd"
+extends "res://Slacker.gd"
 
 # Declare member variables here. Examples:
 # var a = 2
