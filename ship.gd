@@ -22,12 +22,12 @@ func _ready():
 func set_money(var value_arg):
 	var value_arg_rounded = stepify(value_arg, 0.01)
 	$Label_money.set_text(str(value_arg_rounded))
-	
+
 	self._money = value_arg
 
 func get_money():
 	return self._money
-	
+
 func add_money(var value_arg):
 	var value = get_money()
 	set_money(value+value_arg)
@@ -44,7 +44,7 @@ func add_ore(var value_arg):
 	set_ore(value+value_arg)
 
 func hit_ore(var value_arg, var origin_arg, var destiny_arg):
-	add_ore(value_arg)	
+	add_ore(value_arg)
 	call_deferred("send_money",value_arg, origin_arg)
 
 func set_candy(var value_arg):
