@@ -4,8 +4,8 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 
-const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
-const MyNode2D_candyResource = preload("res://Area2D_candy.tscn")
+const MyNode2D_moneyResource = preload("res://Coin.tscn")
+const MyNode2D_candyResource = preload("res://Candy.tscn")
 
 var _money = 0.0
 var _ore = 0.0
