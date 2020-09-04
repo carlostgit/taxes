@@ -8,7 +8,7 @@ var _ready_to_work = true
 
 var _GDP = 0.0
 
-const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
+#const MyCoinResource = preload("res://Coin.tscn")
 
 signal working_signal
 

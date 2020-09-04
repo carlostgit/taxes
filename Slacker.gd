@@ -15,8 +15,8 @@ export (NodePath) var _ship_path = "../Ship"
 
 export (NodePath) var _government = "../Government"
 
-const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
-const MyNode2D_CoinResource = preload("res://Node2D_Coin.tscn")
+const MyOreResource = preload("res://Ore.tscn")
+const MyCoinResource = preload("res://Coin.tscn")
 
 var _tax_rate = 0.25
 
@@ -154,7 +154,7 @@ func hit_candy(var value_arg, var origin_arg, var destiny_arg):
 #######################
 #Send methods
 func send_ore(var amount_arg, var destiny_arg):
-	var ore = MyArea2D_oreResource.instance()
+	var ore = MyOreResource.instance()
 	self.get_parent().add_child(ore)
 	#self.get_tree().get_root().add_child(ore)
 	ore.set_origin_destiny(self,destiny_arg)
@@ -162,7 +162,7 @@ func send_ore(var amount_arg, var destiny_arg):
 	add_ore(-amount_arg)
 
 func send_money(var amount_arg, var destiny_arg):
-	var money = MyNode2D_CoinResource.instance()
+	var money = MyCoinResource.instance()
 	self.get_parent().add_child(money)
 	#self.get_tree().get_root().add_child(money)
 	money.set_origin_destiny(self,destiny_arg)
@@ -197,7 +197,7 @@ func pay_taxes():
 
 #	if (taxes_rounded>0):
 	if (taxes>0):
-		var coin_gov = MyNode2D_CoinResource.instance()
+		var coin_gov = MyCoinResource.instance()
 		self.get_parent().add_child(coin_gov)
 		coin_gov.set_origin_destiny(self,get_node(_government))
 #		coin_gov.set_value(taxes_rounded)

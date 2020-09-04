@@ -6,7 +6,7 @@ extends StaticBody2D
 
 export (NodePath) var _slacker_path = "../Slacker"
 
-const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
+const MyCoinResource = preload("res://Coin.tscn")
 
 var _money:float = 0.0
 var _collected:float = 0.0
@@ -53,7 +53,7 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 
 #Deferred functions
 func send_money(var amount_arg, var destiny_node_arg):
-		var coin = MyNode2D_moneyResource.instance()
+		var coin = MyCoinResource.instance()
 		self.get_parent().add_child(coin)
 		coin.set_origin_destiny(self,destiny_node_arg)
 		coin.set_value(amount_arg)

@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(_origin!=null):	
+	if(_origin!=null):
 		var current_pos:Vector2 = self.get_position()
 		var param_speed = 100.0
 		var destiny_pos = _destiny.get_position()
@@ -37,7 +37,7 @@ func set_origin_destiny(var origin_arg, var destiny_arg):
 
 func get_value():
 	return self._amount
-	
+
 func set_value(var value_arg):
 	var value_rounded = stepify(value_arg, 0.01)
 	$Label.set_text(str(value_rounded))

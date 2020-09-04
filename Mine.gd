@@ -4,9 +4,9 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-export (NodePath) var _node_path_worker
+export (NodePath) var _node_path_worker = "../Worker"
 
-const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
+const MyOreResource = preload("res://Ore.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
 		send_ore_to_worker(1)
-		
+
 func set_ore(var value_arg):
 	$Label_ore.set_text(str(value_arg))
 
@@ -30,7 +30,7 @@ func add_ore(var value_arg):
 	set_ore(value+value_arg)
 
 func send_ore_to_worker(var amount_arg):
-	var ore = MyArea2D_oreResource.instance()
+	var ore = MyOreResource.instance()
 	self.get_parent().add_child(ore)
 	var destiny = get_node(_node_path_worker)
 	ore.set_origin_destiny(self.get_node("."),destiny)

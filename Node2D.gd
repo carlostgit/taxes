@@ -9,9 +9,9 @@ export (bool) var _tax_labour_only = true
 
 var _GDP = 0.0
 
-const MyNode2D_CoinResource = preload("res://Node2D_Coin.tscn")
-const MyArea2D_oreResource = preload("res://Area2D_ore.tscn")
-const MyArea2D_candyResource = preload("res://Area2D_candy.tscn")
+const MyCoinResource = preload("res://Coin.tscn")
+const MyOreResource = preload("res://Ore.tscn")
+const MyCandyResource = preload("res://Candy.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,13 +33,13 @@ func _process(delta):
 	var revenue = $Government.get_revenue()
 	$Control_info.set_revenue(revenue)
 #		
-func _on_Area2D_mine_body_entered(body):
-#	print ("Body entered. Body name")
-#	if body == $Slacker:
-#		print ("slacker")
-#	if body == $Worker:
-#		print ("worker")
-	pass	
+#func _on_Area2D_mine_body_entered(body):
+##	print ("Body entered. Body name")
+##	if body == $Slacker:
+##		print ("slacker")
+##	if body == $Worker:
+##		print ("worker")
+#	pass	
 
 func reset():
 	self.get_tree().reload_current_scene()

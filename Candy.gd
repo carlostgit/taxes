@@ -4,7 +4,6 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-
 var _origin:Node2D = null
 var _destiny:Node2D = null
 var _amount:float = 0.0
@@ -15,7 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(_origin!=null):	
+	if(_origin!=null):
 		var current_pos:Vector2 = self.get_position()
 		var param_speed = 50.0
 		var destiny_pos = _destiny.get_position()
@@ -33,13 +32,14 @@ func get_value():
 #	var value = float(value_text)
 #	return value
 	return self._amount
-	
+
 func set_value(var value_arg):
-	var value_rounded = stepify(value_arg, 0.01)
+	var value_rounded = stepify(value_arg,0.01)
 	$Label.set_text(str(value_rounded))
 	self._amount = value_arg
 
-func _on_Area2D_ore_body_entered(body):
+func _on_Candy_body_entered(body):
 	if (body==_destiny):
-		body.hit_ore(get_value(), _origin, _destiny)
+		body.hit_candy(get_value(),_origin,_destiny)
 		self.queue_free()
+

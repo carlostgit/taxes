@@ -12,9 +12,9 @@ export (NodePath) var _ship = "../Ship"
 
 export (bool) var _automatic_mode = false
 
-const MyNode2D_candyResource = preload("res://Area2D_candy.tscn")
+const MyNode2D_candyResource = preload("res://Candy.tscn")
 #const MyNode2D_oreResource = preload("res://Area2D_ore.tscn")
-const MyNode2D_moneyResource = preload("res://Node2D_Coin.tscn")
+const MyNode2D_moneyResource = preload("res://Coin.tscn")
 
 var _tax_rate = 0.25
 
