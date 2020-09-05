@@ -69,6 +69,7 @@ hint_tooltip = "Automatic mode. If activated, each actor will pay taxes, buy can
 text = "Automatic mode:"
 
 [node name="SpinBox_VAT" type="SpinBox" parent="Panel"]
+editor/display_folded = true
 margin_left = 91.789
 margin_top = 20.0
 margin_right = 165.789
@@ -89,6 +90,7 @@ text = "VAT:"
 valign = 1
 
 [node name="SpinBox_corp_tax" type="SpinBox" parent="Panel"]
+editor/display_folded = true
 margin_left = 450.0
 margin_top = 20.0
 margin_right = 524.0
@@ -122,22 +124,23 @@ margin_bottom = 110.0
 rect_scale = Vector2( 2, 2 )
 text = "Reset"
 
-[node name="Label_reso" type="Label" parent="Panel"]
-margin_left = 450.0
-margin_top = 100.0
-margin_right = 520.0
-margin_bottom = 114.0
+[node name="CheckButton_show_debug" type="CheckButton" parent="."]
+margin_left = 930.0
+margin_top = 90.0
+margin_right = 1086.0
+margin_bottom = 130.0
+text = "Show debug"
+
+[node name="Label_reso" type="Label" parent="CheckButton_show_debug"]
+visible = false
+margin_left = -480.0
+margin_top = 10.0
+margin_right = -410.0
+margin_bottom = 24.0
 rect_scale = Vector2( 2, 2 )
 text = "Resolucion"
 
-[node name="CheckButton_show_debug_log" type="CheckButton" parent="."]
-margin_left = 930.0
-margin_top = 90.0
-margin_right = 1066.0
-margin_bottom = 130.0
-text = "Show log"
-
-[node name="ItemList_log" type="ItemList" parent="CheckButton_show_debug_log"]
+[node name="ItemList_log" type="ItemList" parent="CheckButton_show_debug"]
 visible = false
 margin_left = -736.0
 margin_top = 44.0
@@ -149,4 +152,4 @@ margin_bottom = 119.0
 [connection signal="value_changed" from="Panel/SpinBox_corp_tax" to="." method="_on_SpinBox_corp_tax_value_changed"]
 [connection signal="toggled" from="Panel/SpinBox_corp_tax/CheckButton_tax_subsidies_too" to="." method="_on_CheckButton_tax_subsidies_too_toggled"]
 [connection signal="pressed" from="Panel/Button_reset" to="." method="_on_Button_reset_pressed"]
-[connection signal="toggled" from="CheckButton_show_debug_log" to="." method="_on_CheckButton_show_debug_log_toggled"]
+[connection signal="toggled" from="CheckButton_show_debug" to="." method="_on_CheckButton_show_debug_toggled"]

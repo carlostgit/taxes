@@ -12,8 +12,8 @@ export (bool) var _tax_labour_only = true
 func _ready():
 	var screenSize = get_viewport().get_visible_rect().size
 
-	$Panel/Label_reso.set_text(str(screenSize))
-	
+	$CheckButton_show_debug/Label_reso.set_text(str(screenSize))
+
 	set_main_scene_parameters()
 
 func get_main_scene():
@@ -94,7 +94,7 @@ func _on_CheckButton_tax_subsidies_too_toggled(button_pressed):
 		get_main_scene().set_tax_labour_only(_tax_labour_only)
 
 func _gui_input(event):
-	if ($CheckButton_show_debug_log.is_pressed()):
+	if ($CheckButton_show_debug.is_pressed()):
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT and event.pressed:
 				print("I've been clicked D:")
@@ -103,13 +103,15 @@ func _gui_input(event):
 			var factor = event.get_factor()
 			print("Magnifying: "+str(factor))
 
-		$CheckButton_show_debug_log/ItemList_log.add_item(event.as_text())
-		$CheckButton_show_debug_log/ItemList_log.select($CheckButton_show_debug_log/ItemList_log.get_item_count()-1)
-		$CheckButton_show_debug_log/ItemList_log.ensure_current_is_visible()
+		$CheckButton_show_debug/ItemList_log.add_item(event.as_text())
+		$CheckButton_show_debug/ItemList_log.select($CheckButton_show_debug/ItemList_log.get_item_count()-1)
+		$CheckButton_show_debug/ItemList_log.ensure_current_is_visible()
 
-func _on_CheckButton_show_debug_log_toggled(button_pressed):
+func _on_CheckButton_show_debug_toggled(button_pressed):
 	if (button_pressed==false):
-		$CheckButton_show_debug_log/ItemList_log.hide()
-		$CheckButton_show_debug_log/ItemList_log.clear()
+		$CheckButton_show_debug/ItemList_log.hide()
+		$CheckButton_show_debug/Label_reso.hide()
+		$CheckButton_show_debug/ItemList_log.clear()
 	else:
-		$CheckButton_show_debug_log/ItemList_log.show()
+		$CheckButton_show_debug/ItemList_log.show()
+		$CheckButton_show_debug/Label_reso.show()
