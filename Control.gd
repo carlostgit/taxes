@@ -3,7 +3,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const _main_scene_res = preload("res://Node2D.tscn")
+const _main_scene_res = preload("res://MainScene.tscn")
 
 export (bool) var _automatic_mode = false
 export (bool) var _tax_labour_only = true
@@ -21,8 +21,8 @@ func get_main_scene():
 		if(node.is_in_group("main_scene_group")):
 			return node
 			
-	if ($Panel/ScrollContainer/Panel/Node2D):
-		return $Panel/ScrollContainer/Panel/Node2D
+	if ($Panel/ScrollContainer/Panel/MainScene):
+		return $Panel/ScrollContainer/Panel/MainScene
 	
 	print("main_scene not found in get_main_scene()")
 	return null
@@ -34,9 +34,9 @@ func _on_Button_reset_pressed():
 			node.remove_from_group("main_scene_group")
 			node.queue_free()
 			
-	if ($Panel/ScrollContainer/Panel/Node2D):
-		$Panel/ScrollContainer/Panel/Node2D.remove_from_group("main_scene_group")
-		$Panel/ScrollContainer/Panel/Node2D.queue_free()
+	if ($Panel/ScrollContainer/Panel/MainScene):
+		$Panel/ScrollContainer/Panel/MainScene.remove_from_group("main_scene_group")
+		$Panel/ScrollContainer/Panel/MainScene.queue_free()
 	var new_main_scene = _main_scene_res.instance()
 
 	$Panel/ScrollContainer/Panel.add_child(new_main_scene)

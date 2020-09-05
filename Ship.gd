@@ -4,8 +4,8 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 
-const MyNode2D_moneyResource = preload("res://Coin.tscn")
-const MyNode2D_candyResource = preload("res://Candy.tscn")
+const MyCoinResource = preload("res://Coin.tscn")
+const MyCandyResource = preload("res://Candy.tscn")
 
 var _money = 0.0
 var _ore = 0.0
@@ -61,7 +61,7 @@ func add_candy(var value_arg):
 
 func send_money(var amount_arg, var destiny_node_arg):
 	if(amount_arg != 0):
-		var coin = MyNode2D_moneyResource.instance()
+		var coin = MyCoinResource.instance()
 		self.get_parent().add_child(coin)
 		coin.set_origin_destiny(self,destiny_node_arg)
 		coin.set_value(amount_arg)
@@ -72,7 +72,7 @@ func hit_money(var value_arg, var origin_arg, var destiny_arg):
 	call_deferred("send_candy",value_arg, origin_arg)
 
 func send_candy(var amount_arg, var destiny_node_arg):
-	var candy = MyNode2D_candyResource.instance()
+	var candy = MyCandyResource.instance()
 	self.get_parent().add_child(candy)
 	candy.set_origin_destiny(self,destiny_node_arg)
 	candy.set_value(amount_arg)
