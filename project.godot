@@ -39,6 +39,10 @@ ui_accept={
  ]
 }
 
+[locale]
+
+translations=PoolStringArray( "res://TaxesTranslations.en.translation", "res://TaxesTranslations.es.translation" )
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

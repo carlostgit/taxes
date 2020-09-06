@@ -44,11 +44,11 @@ _corporate_tax_rate = 0.1
 _value_added_tax = 0.8
 
 [node name="Ship" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 81, 189.392 )
 script = ExtResource( 2 )
 
 [node name="Label_ore" type="Label" parent="Ship"]
+editor/display_folded = true
 margin_left = -81.0
 margin_top = -100.392
 margin_right = -11.0
@@ -69,6 +69,7 @@ hint_tooltip = "Ore exported"
 texture = ExtResource( 3 )
 
 [node name="Label_money" type="Label" parent="Ship"]
+editor/display_folded = true
 margin_left = -81.0
 margin_top = -69.0
 margin_right = -11.0
@@ -106,6 +107,7 @@ position = Vector2( 3.53555, 4.09099 )
 shape = SubResource( 1 )
 
 [node name="Label_candy" type="Label" parent="Ship"]
+editor/display_folded = true
 margin_left = -81.0
 margin_top = -130.392
 margin_right = -11.0
@@ -125,17 +127,19 @@ rect_scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
 [node name="Control_IP" type="Panel" parent="Ship"]
-margin_left = 84.0
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 41.0
 margin_top = -151.0
 margin_right = 359.0
 margin_bottom = -30.0
 
 [node name="Label_int_prices" type="Label" parent="Ship/Control_IP"]
-margin_left = 11.8027
+margin_left = 8.10429
 margin_top = 9.0
-margin_right = 140.804
+margin_right = 137.106
 margin_bottom = 23.0
 rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "International Prices"
 
 [node name="TextureRect_candy_IP" type="TextureRect" parent="Ship/Control_IP"]
@@ -215,19 +219,16 @@ position = Vector2( 226.235, 349 )
 
 [node name="Mine" type="Area2D" parent="."]
 editor/display_folded = true
-position = Vector2( 193.761, 354 )
+position = Vector2( 190.104, 354 )
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_group_": true
-}
 _node_path_worker = NodePath("../../MainScene/Worker")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mine"]
-position = Vector2( 0.878677, 6.94977 )
+position = Vector2( 0.878677, 5 )
 shape = SubResource( 3 )
 
 [node name="mine" type="Sprite" parent="Mine"]
-position = Vector2( 0.878683, 8.64799 )
+position = Vector2( 0.878683, 1.54301 )
 texture = ExtResource( 10 )
 
 [node name="Label_ore" type="Label" parent="Mine"]
@@ -249,12 +250,13 @@ hint_tooltip = "Ore extracted"
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="Mine"]
-margin_left = -21.3181
-margin_top = -23.352
-margin_right = 18.6819
-margin_bottom = -9.352
+margin_left = -51.1595
+margin_top = -27.0629
+margin_right = -11.1595
+margin_bottom = -13.0629
 rect_scale = Vector2( 1.3, 1.3 )
 text = "Mine"
+align = 2
 
 [node name="Ore" parent="." instance=ExtResource( 11 )]
 visible = false
@@ -265,7 +267,6 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="Shop" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 491.356, 229 )
 script = ExtResource( 13 )
 
@@ -278,6 +279,7 @@ position = Vector2( 0.163952, 9.4159 )
 texture = ExtResource( 14 )
 
 [node name="Label_money" type="Label" parent="Shop"]
+editor/display_folded = true
 margin_left = -81.0
 margin_top = -90.0
 margin_right = -20.0
@@ -299,6 +301,7 @@ hint_tooltip = "Coins Before Tax"
 texture = ExtResource( 4 )
 
 [node name="Label_ore" type="Label" parent="Shop"]
+editor/display_folded = true
 margin_left = -81.0
 margin_top = -120.0
 margin_right = -20.0
@@ -318,6 +321,7 @@ hint_tooltip = "Ore"
 texture = ExtResource( 3 )
 
 [node name="Label_candy" type="Label" parent="Shop"]
+editor/display_folded = true
 margin_left = -91.0
 margin_top = -150.0
 margin_right = -22.0
@@ -339,6 +343,7 @@ hint_tooltip = "Candies sold"
 texture = ExtResource( 6 )
 
 [node name="Label_after_taxes" type="Label" parent="Shop"]
+editor/display_folded = true
 margin_left = -81.0
 margin_top = -60.0
 margin_right = -19.0
@@ -386,9 +391,11 @@ rect_scale = Vector2( 1.3, 1.3 )
 text = "Buy candies"
 
 [node name="Control_prices" type="Panel" parent="Shop"]
-margin_left = 75.0
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 48.7483
 margin_top = -190.0
-margin_right = 269.0
+margin_right = 232.748
 margin_bottom = -117.0
 
 [node name="TextureRect_candy_RP" type="TextureRect" parent="Shop/Control_prices"]
@@ -437,6 +444,7 @@ visible = false
 position = Vector2( -192, 290 )
 
 [node name="Government" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 580.419, 392.543 )
 script = ExtResource( 16 )
 
@@ -535,12 +543,13 @@ rect_scale = Vector2( 2, 2 )
 text = "0"
 
 [node name="Label_revenue_text" type="Label" parent="Control_info"]
-margin_left = 131.77
+margin_left = 72.0
 margin_top = 31.0
-margin_right = 208.77
+margin_right = 179.0
 margin_bottom = 46.0
 rect_scale = Vector2( 2, 2 )
 text = "Tax revenue"
+align = 2
 
 [node name="Label_revenue" type="Label" parent="Control_info"]
 margin_left = 305.523
@@ -559,13 +568,14 @@ rect_scale = Vector2( 2, 2 )
 text = "0"
 
 [node name="Label_revenue_per_GDP_text" type="Label" parent="Control_info"]
-margin_left = 85.523
+margin_left = 72.0
 margin_top = 60.0
-margin_right = 185.523
+margin_right = 179.0
 margin_bottom = 75.0
 rect_scale = Vector2( 2, 2 )
 hint_tooltip = "Tax revenue as a fraction of the GDP (Tax revenue/GDP)"
 text = "Tax pressure %"
+align = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 editor/display_folded = true
