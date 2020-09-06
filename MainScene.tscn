@@ -127,6 +127,7 @@ rect_scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
 [node name="Control_IP" type="Panel" parent="Ship"]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 41.0
 margin_top = -151.0
@@ -221,7 +222,6 @@ position = Vector2( 226.235, 349 )
 editor/display_folded = true
 position = Vector2( 190.104, 354 )
 script = ExtResource( 9 )
-_node_path_worker = NodePath("../../MainScene/Worker")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mine"]
 position = Vector2( 0.878677, 5 )
@@ -267,6 +267,7 @@ visible = false
 position = Vector2( -189, 201 )
 
 [node name="Shop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 491.356, 229 )
 script = ExtResource( 13 )
 
