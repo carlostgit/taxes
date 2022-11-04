@@ -37,16 +37,14 @@ rect_min_size = Vector2( 1100, 550 )
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 
-[node name="MainScene" parent="Panel/ScrollContainer/Panel" groups=[
-"main_scene_group",
-] instance=ExtResource( 2 )]
+[node name="MainScene" parent="Panel/ScrollContainer/Panel" groups=["main_scene_group"] instance=ExtResource( 2 )]
 position = Vector2( 0, 0 )
 
 [node name="Button_pause" type="Button" parent="Panel"]
-margin_left = 650.0
-margin_top = 90.0
-margin_right = 700.0
-margin_bottom = 110.0
+margin_left = 610.0
+margin_top = 20.0
+margin_right = 660.0
+margin_bottom = 40.0
 rect_scale = Vector2( 2, 2 )
 text = "Pause"
 
@@ -61,23 +59,25 @@ text = "Paused"
 
 [node name="CheckButton_automatic_mode" type="CheckButton" parent="Panel"]
 margin_left = 20.0
-margin_top = 80.0
 margin_right = 211.0
-margin_bottom = 120.0
+margin_bottom = 40.0
 rect_scale = Vector2( 2, 2 )
 hint_tooltip = "Automatic mode. If activated, each actor will pay taxes, buy candies, sell products automatically. When activated, it will automatically activate the Auto work for the worker."
 text = "Automatic mode:"
 
 [node name="SpinBox_VAT" type="SpinBox" parent="Panel"]
-margin_left = 91.789
-margin_top = 20.0
-margin_right = 165.789
-margin_bottom = 50.0
+margin_left = 100.0
+margin_top = 90.0
+margin_right = 174.0
+margin_bottom = 120.0
 rect_scale = Vector2( 2, 2 )
 hint_tooltip = "Value Added Tax. % of income that goes to the government in each purchase of a consumer  product"
 max_value = 99.0
-value = 25.0
+value = 50.0
 suffix = "%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label_VAT" type="Label" parent="Panel/SpinBox_VAT"]
 margin_left = -36.0
@@ -90,13 +90,12 @@ align = 2
 valign = 1
 
 [node name="SpinBox_corp_tax" type="SpinBox" parent="Panel"]
-margin_left = 450.0
-margin_top = 20.0
-margin_right = 524.0
-margin_bottom = 50.0
+margin_left = 470.0
+margin_top = 90.0
+margin_right = 544.0
+margin_bottom = 120.0
 rect_scale = Vector2( 2, 2 )
 hint_tooltip = "Flat Income Tax. % of income that goes to government, from the income of a person"
-value = 20.0
 suffix = "%"
 
 [node name="Label_corporate_tax" type="Label" parent="Panel/SpinBox_corp_tax"]
@@ -109,27 +108,27 @@ align = 2
 valign = 1
 
 [node name="CheckButton_tax_subsidies_too" type="CheckButton" parent="Panel/SpinBox_corp_tax"]
-margin_left = 73.1461
+margin_left = 100.0
 margin_top = -5.0
-margin_right = 278.146
+margin_right = 305.0
 margin_bottom = 35.0
 hint_tooltip = "Tax subsidies too. If activated, Income Tax will be applied also to subsidies, and not only to labour income"
 text = "Tax subsidies too:"
 align = 2
 
 [node name="Button_reset" type="Button" parent="Panel"]
-margin_left = 820.0
-margin_top = 90.0
-margin_right = 868.0
-margin_bottom = 110.0
+margin_left = 780.0
+margin_top = 20.0
+margin_right = 828.0
+margin_bottom = 40.0
 rect_scale = Vector2( 2, 2 )
 text = "Reset"
 
 [node name="CheckButton_show_debug" type="CheckButton" parent="."]
 margin_left = 930.0
-margin_top = 90.0
-margin_right = 1066.0
-margin_bottom = 130.0
+margin_top = 20.0
+margin_right = 1086.0
+margin_bottom = 60.0
 text = "Show debug"
 
 [node name="Label_reso" type="Label" parent="CheckButton_show_debug"]
@@ -147,6 +146,7 @@ margin_left = -736.0
 margin_top = 44.0
 margin_right = 128.0
 margin_bottom = 119.0
+
 [connection signal="pressed" from="Panel/Button_pause" to="." method="_on_Button_pause_pressed"]
 [connection signal="toggled" from="Panel/CheckButton_automatic_mode" to="." method="_on_CheckButton_automatic_mode_toggled"]
 [connection signal="value_changed" from="Panel/SpinBox_VAT" to="." method="_on_SpinBox_VAT_value_changed"]
